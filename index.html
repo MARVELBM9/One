@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARVEL BM9</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+        <!-- الهيدر الرئيسي -->
+        <header class="header">
+            <h1 class="logo">MARVEL - <span>BM9</span></h1>
+            <p class="subtitle">مكتبة عالم مارفل</p>
+        </header>
+
+        <!-- شريط التقدم العام -->
+        <div class="progress-container">
+            <div class="progress-info">
+                <span id="counterText">جاري التحميل...</span>
+                <span id="percentText">0%</span>
+            </div>
+            <div class="progress-track">
+                <div id="progressBar" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- أزرار الأقسام (Tabs) -->
+        <div class="tabs-wrapper">
+            <button class="tab-btn active" data-tab="0">MCU</button>
+            <button class="tab-btn" data-tab="1">المسلسلات</button>
+            <button class="tab-btn" data-tab="2">الأكس مين</button>
+            <button class="tab-btn" data-tab="3">الفانتاستك فور</button>
+        </div>
+
+        <!-- شريط البحث والفلاتر -->
+        <div class="controls-bar">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="ابحث عن فيلم أو مسلسل...">
+            </div>
+            <div class="filter-wrapper">
+                <button class="filter-btn active" data-filter="all">الكل</button>
+                <button class="filter-btn" data-filter="watched">المشاهدة</button>
+                <button class="filter-btn" data-filter="unwatched">غير المشاهدة</button>
+            </div>
+        </div>
+
+        <!-- شبكة العرض (Grid) -->
+        <div id="moviesGrid" class="movies-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

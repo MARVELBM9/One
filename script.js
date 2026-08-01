@@ -1,7 +1,7 @@
-const marvelCategories = [
+Const marvelCategories = [
     {
-        name: "MCU",
-        items: [
+        Name: "MCU",
+        Items: [
             { id: "m1", title: "Spider-Man", year: "2002", duration: "ساعتان و1 دقيقة (121 دقيقة)", poster: "https://image.tmdb.org/t/p/w500/gh4cZbhZxyTbgxQPxD0dOudNPTn.jpg", trailer: "https://www.youtube.com/watch?v=t06RUxPbp_c" },
             { id: "m2", title: "Spider-Man 2", year: "2004", duration: "ساعتان و7 دقائق (127 دقيقة)", poster: "https://image.tmdb.org/t/p/w500/olxpyq9kJAZ2NU1siLshhhXEPR7.jpg", trailer: "https://www.youtube.com/watch?v=1s9Yln0YwCw" },
             { id: "m3", title: "Spider-Man 3", year: "2007", duration: "ساعتان و36 دقيقة (156 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785604280261-8c306ff1-7934-4939-a296-6cf44e1b1105.jpg", trailer: "https://www.youtube.com/watch?v=e5wUilOeOmg" },
@@ -52,8 +52,8 @@ const marvelCategories = [
         ]
     },
     {
-        name: "المسلسلات",
-        items: [
+        Name: "المسلسلات",
+        Items: [
             { id: "s1", title: "Daredevil – Season 1", year: "2015", duration: "13 حلقة (54 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785620435460-254694ed-6c5b-4e36-9a1a-337f451814ac.jpg", trailer: "https://www.youtube.com/watch?v=jAy6NJ_D5vM" },
             { id: "s2", title: "Jessica Jones – Season 1", year: "2015", duration: "13 حلقة (52 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785620992119-826a13e9-f295-43f0-bdf7-62428da35e91.jpg", trailer: "https://www.youtube.com/watch?v=nWHUjuJ8zxE" },
             { id: "s3", title: "Daredevil – Season 2", year: "2016", duration: "13 حلقة (53 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785620576446-ee22ea02-050b-4d94-a434-fa64acd378c7.jpg", trailer: "https://www.youtube.com/watch?v=2ptio0wVnso" },
@@ -89,8 +89,8 @@ const marvelCategories = [
         ]
     },
     {
-        name: "الأكس مين",
-        items: [
+        Name: "الأكس مين",
+        Items: [
             { id: "x1", title: "X-Men", year: "2000", duration: "ساعة و44 دقيقة (104 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785623915359-0f47ac91-4e50-47ff-b389-03df5c694480.jpg", trailer: "https://www.youtube.com/watch?v=nb8jfKYw4_w" },
             { id: "x2", title: "X2: X-Men United", year: "2003", duration: "ساعتان و13 دقيقة (133 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785623974345-c1d0f75a-2f38-4f37-b10c-a9aebc1d463c.jpg", trailer: "https://www.youtube.com/watch?v=8g18jMyohDQ" },
             { id: "x3", title: "X-Men: The Last Stand", year: "2006", duration: "ساعة و44 دقيقة (104 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785624010877-99ab2d0e-c52f-48ef-abac-7033c1f182f6.jpg", trailer: "https://www.youtube.com/watch?v=xzqQFhUu8vY" },
@@ -109,8 +109,8 @@ const marvelCategories = [
         ]
     },
     {
-        name: "الفانتاستك فور",
-        items: [
+        Name: "الفانتاستك فور",
+        Items: [
             { id: "f1", title: "Fantastic Four", year: "2005", duration: "ساعة و46 دقيقة (106 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785624900646-06123306-bd49-47ec-b97d-f58b5136c710.jpg", trailer: "https://www.youtube.com/watch?v=wfM8b3_e_gQ" },
             { id: "f2", title: "Fantastic Four: Rise of the Silver Surfer", year: "2007", duration: "ساعة و32 دقيقة (92 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785624968967-c5b4362f-9c78-4178-a489-3be5c0208dba.jpg", trailer: "https://www.youtube.com/watch?v=7zG9Qx_4Gq0" },
             { id: "f3", title: "Fantastic Four", year: "2015", duration: "ساعة و40 دقيقة (100 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785625072674-ed22465f-6aaa-4e21-b0db-a0fb7fab91f1.jpg", trailer: "https://www.youtube.com/watch?v=AAZN4ikzNEU" },
@@ -119,101 +119,101 @@ const marvelCategories = [
     }
 ];
 
-let watchedList = JSON.parse(localStorage.getItem('marvel_watched_v6')) || {};
-let imagesList = JSON.parse(localStorage.getItem('marvel_images_v6')) || {};
+Let watchedList = JSON.parse(localStorage.getItem('marvel_watched_v6')) || {};
+Let imagesList = JSON.parse(localStorage.getItem('marvel_images_v6')) || {};
 
-let activeTab = 0;
-let currentFilter = 'all';
-let searchQuery = '';
+Let activeTab = 0;
+Let currentFilter = 'all';
+Let searchQuery = '';
 
-const grid = document.getElementById('moviesGrid');
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+Const grid = document.getElementById('moviesGrid');
+Const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-function playSound(type) {
-    if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
+Function playSound(type) {
+    If (audioCtx.state === 'suspended') {
+        AudioCtx.resume();
     }
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
+    Const osc = audioCtx.createOscillator();
+    Const gain = audioCtx.createGain();
+    Osc.connect(gain);
+    Gain.connect(audioCtx.destination);
 
-    if (type === 'tab') {
-        osc.frequency.setValueAtTime(350, audioCtx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
-        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.1);
+    If (type === 'tab') {
+        Osc.frequency.setValueAtTime(350, audioCtx.currentTime);
+        Osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
+        Gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        Gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+        Osc.start();
+        Osc.stop(audioCtx.currentTime + 0.1);
     } else if (type === 'toggle') {
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(500, audioCtx.currentTime);
-        osc.frequency.setValueAtTime(850, audioCtx.currentTime + 0.08);
-        gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.15);
+        Osc.type = 'triangle';
+        Osc.frequency.setValueAtTime(500, audioCtx.currentTime);
+        Osc.frequency.setValueAtTime(850, audioCtx.currentTime + 0.08);
+        Gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+        Gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+        Osc.start();
+        Osc.stop(audioCtx.currentTime + 0.15);
     } else if (type === 'focus') {
-        osc.frequency.setValueAtTime(400, audioCtx.currentTime);
-        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-        osc.start();
-        osc.stop(audioCtx.currentTime + 0.08);
+        Osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+        Gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        Gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+        Osc.start();
+        Osc.stop(audioCtx.currentTime + 0.08);
     }
 }
 
-document.addEventListener('click', () => {
-    if (audioCtx.state === 'suspended') {
-        audioCtx.resume();
+Document.addEventListener('click', () => {
+    If (audioCtx.state === 'suspended') {
+        AudioCtx.resume();
     }
 }, { once: true });
 
-function init() {
-    render();
+Function init() {
+    Render();
 }
 
-function changeTab(newTabIndex) {
-    if (activeTab === newTabIndex) return;
-    playSound('tab');
+Function changeTab(newTabIndex) {
+    If (activeTab === newTabIndex) return;
+    PlaySound('tab');
 
-    grid.classList.add('fade-out');
+    Grid.classList.add('fade-out');
 
-    setTimeout(() => {
-        activeTab = newTabIndex;
-        render();
-        grid.classList.remove('fade-out');
-        grid.classList.add('fade-in');
+    SetTimeout(() => {
+        ActiveTab = newTabIndex;
+        Render();
+        Grid.classList.remove('fade-out');
+        Grid.classList.add('fade-in');
 
-        setTimeout(() => grid.classList.remove('fade-in'), 200);
+        SetTimeout(() => grid.classList.remove('fade-in'), 200);
     }, 150);
 }
 
-function render() {
-    grid.innerHTML = '';
-    grid.classList.remove('has-focus');
+Function render() {
+    Grid.innerHTML = '';
+    Grid.classList.remove('has-focus');
     
-    const currentCategory = marvelCategories[activeTab];
-    let catWatchedCount = 0;
-    let catTotalCount = currentCategory.items.length;
+    Const currentCategory = marvelCategories[activeTab];
+    Let catWatchedCount = 0;
+    Let catTotalCount = currentCategory.items.length;
 
-    currentCategory.items.forEach((item, index) => {
-        const isWatched = !!watchedList[item.id];
-        if (isWatched) catWatchedCount++;
+    CurrentCategory.items.forEach((item, index) => {
+        Const isWatched = !!watchedList[item.id];
+        If (isWatched) catWatchedCount++;
 
-        const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesFilter = 
-            currentFilter === 'all' ||
+        Const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
+        Const matchesFilter = 
+            CurrentFilter === 'all' ||
             (currentFilter === 'watched' && isWatched) ||
             (currentFilter === 'unwatched' && !isWatched);
 
-        if (!matchesSearch || !matchesFilter) return;
+        If (!matchesSearch || !matchesFilter) return;
 
-        const card = document.createElement('div');
-        card.className = `card ${isWatched ? 'watched' : ''}`;
+        Const card = document.createElement('div');
+        Card.className = `card ${isWatched ? 'watched' : ''}`;
 
-        const posterSrc = imagesList[item.id] || item.poster || 'https://via.placeholder.com/300x450/020617/ffffff?text=Marvel';
+        Const posterSrc = imagesList[item.id] || item.poster || 'https://via.placeholder.com/300x450/020617/ffffff?text=Marvel';
 
-        card.innerHTML = `
+        Card.innerHTML = `
             <div class="poster-box">
                 <img class="poster-img" src="${posterSrc}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x450/020617/ffffff?text=Marvel';">
             </div>
@@ -227,9 +227,9 @@ function render() {
                     <div class="duration-info" style="font-size: 0.85rem; color: #38bdf8; margin-top: 4px; font-weight: bold;">⏱ ${item.duration}</div>
                 </div>
                 
-                <a href="${item.trailer}" target="_blank" class="upload-btn-label" style="text-decoration: none; text-align: center; display: block;" onclick="event.stopPropagation();">
-                    ▶ مشاهدة الإعلان
-                </a>
+                <div class="imdb-rating" style="text-align: center; background: rgba(245, 197, 24, 0.1); border: 1px solid rgba(245, 197, 24, 0.3); color: #f5c518; padding: 6px; border-radius: 6px; font-weight: bold; font-size: 0.9rem;">
+                    ⭐ تقييم IMDb
+                </div>
 
                 <button class="watch-btn" onclick="event.stopPropagation(); toggleWatch('${item.id}')">
                     ${isWatched ? '✔ تم المشاهدة' : 'لم أشاهده'}
@@ -237,72 +237,72 @@ function render() {
             </div>
         `;
 
-        card.addEventListener('click', () => {
-            playSound('focus');
-            const isAlreadyFocused = card.classList.contains('focused');
+        Card.addEventListener('click', () => {
+            PlaySound('focus');
+            Const isAlreadyFocused = card.classList.contains('focused');
             
-            document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
+            Document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
             
-            if (!isAlreadyFocused) {
-                card.classList.add('focused');
-                grid.classList.add('has-focus');
+            If (!isAlreadyFocused) {
+                Card.classList.add('focused');
+                Grid.classList.add('has-focus');
             } else {
-                grid.classList.remove('has-focus');
+                Grid.classList.remove('has-focus');
             }
         });
 
-        grid.appendChild(card);
+        Grid.appendChild(card);
     });
 
-    const percent = catTotalCount > 0 ? Math.round((catWatchedCount / catTotalCount) * 100) : 0;
-    const counterEl = document.getElementById('counterText');
-    const percentEl = document.getElementById('percentText');
-    const progressEl = document.getElementById('progressBar');
+    Const percent = catTotalCount > 0 ? Math.round((catWatchedCount / catTotalCount) * 100) : 0;
+    Const counterEl = document.getElementById('counterText');
+    Const percentEl = document.getElementById('percentText');
+    Const progressEl = document.getElementById('progressBar');
 
-    if (counterEl) counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount} في هذا القسم`;
-    if (percentEl) percentEl.innerText = `${percent}%`;
-    if (progressEl) progressEl.style.width = `${percent}%`;
+    If (counterEl) counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount} في هذا القسم`;
+    If (percentEl) percentEl.innerText = `${percent}%`;
+    If (progressEl) progressEl.style.width = `${percent}%`;
 }
 
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.card')) {
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
-        grid.classList.remove('has-focus');
+Document.addEventListener('click', (e) => {
+    If (!e.target.closest('.card')) {
+        Document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
+        Grid.classList.remove('has-focus');
     }
 });
 
-function toggleWatch(itemId) {
-    playSound('toggle');
-    watchedList[itemId] = !watchedList[itemId];
-    localStorage.setItem('marvel_watched_v6', JSON.stringify(watchedList));
-    render();
+Function toggleWatch(itemId) {
+    PlaySound('toggle');
+    WatchedList[itemId] = !watchedList[itemId];
+    LocalStorage.setItem('marvel_watched_v6', JSON.stringify(watchedList));
+    Render();
 }
 
-document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        const nextTab = parseInt(e.target.getAttribute('data-tab'));
-        changeTab(nextTab);
+Document.querySelectorAll('.tab-btn').forEach(btn => {
+    Btn.addEventListener('click', (e) => {
+        Document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        E.target.classList.add('active');
+        Const nextTab = parseInt(e.target.getAttribute('data-tab'));
+        ChangeTab(nextTab);
     });
 });
 
-const searchInput = document.getElementById('searchInput');
-if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value;
-        render();
+Const searchInput = document.getElementById('searchInput');
+If (searchInput) {
+    SearchInput.addEventListener('input', (e) => {
+        SearchQuery = e.target.value;
+        Render();
     });
 }
 
-document.querySelectorAll('.filter-btn').forEach(b => {
-    b.addEventListener('click', (e) => {
-        playSound('tab');
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        e.target.classList.add('active');
-        currentFilter = e.target.getAttribute('data-filter');
-        render();
+Document.querySelectorAll('.filter-btn').forEach(b => {
+    B.addEventListener('click', (e) => {
+        PlaySound('tab');
+        Document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        E.target.classList.add('active');
+        CurrentFilter = e.target.getAttribute('data-filter');
+        Render();
     });
 });
 
-init();
+Init();

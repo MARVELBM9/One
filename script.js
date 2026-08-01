@@ -1,4 +1,4 @@
-Const marvelCategories = [
+const marvelCategories = [
     {
         Name: "MCU",
         Items: [

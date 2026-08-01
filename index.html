@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARVEL BM9</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; background: #121212; color: #fff; padding: 20px; text-align: center; }
+        input, button { padding: 10px; margin: 10px; font-size: 16px; border-radius: 5px; border: none; }
+        button { background: #ff4757; color: #fff; cursor: pointer; }
+        .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 20px; }
+        .gallery img { width: 150px; height: 150px; object-fit: cover; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <h1>منصة MARVEL BM9</h1>
+    <input type="file" id="imageInput" accept="image/*">
+    <br>
+    <button onclick="uploadImage()">رفع الصورة</button>
+
+    <div class="gallery" id="gallery"></div>
+
+    <!-- كود ربط Firebase -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/json/firebasejs/10.8.0/firebase-firestore.js";
+
+        // معلومات مشروعك اللي اخذناها من الخطوات السابقة
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8GeG5tNsU8d_gSUUs_2yGuZ6-EUr0-4",
+            authDomain: "marvel-bm9.firebaseapp.com",
+            projectId: "marvel-bm9",
+            storageBucket: "marvel-bm9.firebasestorage.app",
+            messagingSenderId: "267851637074",
+            appId: "1:267851637074:web:5cf3217be8989784c9da8b",
+            measurementId: "G-ZX22IBSX2Y"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        window.uploadImage = async function() {
+            const fileInput = document.getElementById('imageInput');
+            if (fileInput.files.length === 0) {
+                alert("الرجاء اختيار صورة أولاً!");
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = async function(e) {
+                const base64Image = e.target.result;
+                try {
+                    await addDoc(collection(db, "images"), { image: base64Image });
+                    alert("تم رفع الصورة بنجاح!");
+                    loadImages();
+                } catch (error) {
+                    console.error("خطأ في الرفع: ", error);
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        async function loadImages() {
+            const gallery = document.getElementById('gallery');
+            gallery.innerHTML = "";
+            const querySnapshot = await getDocs(collection(db, "images"));
+            querySnapshot.forEach((doc) => {
+                const imgData = doc.data().image;
+                const img = document.createElement('img');
+                img.src = imgData;
+                gallery.appendChild(img);
+            });
+        }
+
+        loadImages();
+    </script>
+</body>
+</html>

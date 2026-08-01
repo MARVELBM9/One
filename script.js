@@ -119,101 +119,101 @@ const marvelCategories = [
     }
 ];
 
-Let watchedList = JSON.parse(localStorage.getItem('marvel_watched_v6')) || {};
-Let imagesList = JSON.parse(localStorage.getItem('marvel_images_v6')) || {};
+let watchedList = JSON.parse(localStorage.getItem('marvel_watched_v6')) || {};
+let imagesList = JSON.parse(localStorage.getItem('marvel_images_v6')) || {};
 
-Let activeTab = 0;
-Let currentFilter = 'all';
-Let searchQuery = '';
+let activeTab = 0;
+let currentFilter = 'all';
+let searchQuery = '';
 
-Const grid = document.getElementById('moviesGrid');
-Const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const grid = document.getElementById('moviesGrid');
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-Function playSound(type) {
-    If (audioCtx.state === 'suspended') {
-        AudioCtx.resume();
+function playSound(type) {
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
     }
-    Const osc = audioCtx.createOscillator();
-    Const gain = audioCtx.createGain();
-    Osc.connect(gain);
-    Gain.connect(audioCtx.destination);
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
 
-    If (type === 'tab') {
-        Osc.frequency.setValueAtTime(350, audioCtx.currentTime);
-        Osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
-        Gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
-        Gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
-        Osc.start();
-        Osc.stop(audioCtx.currentTime + 0.1);
+    if (type === 'tab') {
+        osc.frequency.setValueAtTime(350, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(600, audioCtx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.1);
     } else if (type === 'toggle') {
-        Osc.type = 'triangle';
-        Osc.frequency.setValueAtTime(500, audioCtx.currentTime);
-        Osc.frequency.setValueAtTime(850, audioCtx.currentTime + 0.08);
-        Gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
-        Gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
-        Osc.start();
-        Osc.stop(audioCtx.currentTime + 0.15);
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(500, audioCtx.currentTime);
+        osc.frequency.setValueAtTime(850, audioCtx.currentTime + 0.08);
+        gain.gain.setValueAtTime(0.25, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.15);
     } else if (type === 'focus') {
-        Osc.frequency.setValueAtTime(400, audioCtx.currentTime);
-        Gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
-        Gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
-        Osc.start();
-        Osc.stop(audioCtx.currentTime + 0.08);
+        osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.08);
     }
 }
 
-Document.addEventListener('click', () => {
-    If (audioCtx.state === 'suspended') {
-        AudioCtx.resume();
+document.addEventListener('click', () => {
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
     }
 }, { once: true });
 
-Function init() {
-    Render();
+function init() {
+    render();
 }
 
-Function changeTab(newTabIndex) {
-    If (activeTab === newTabIndex) return;
-    PlaySound('tab');
+function changeTab(newTabIndex) {
+    if (activeTab === newTabIndex) return;
+    playSound('tab');
 
-    Grid.classList.add('fade-out');
+    grid.classList.add('fade-out');
 
-    SetTimeout(() => {
-        ActiveTab = newTabIndex;
-        Render();
-        Grid.classList.remove('fade-out');
-        Grid.classList.add('fade-in');
+    setTimeout(() => {
+        activeTab = newTabIndex;
+        render();
+        grid.classList.remove('fade-out');
+        grid.classList.add('fade-in');
 
-        SetTimeout(() => grid.classList.remove('fade-in'), 200);
+        setTimeout(() => grid.classList.remove('fade-in'), 200);
     }, 150);
 }
 
-Function render() {
-    Grid.innerHTML = '';
-    Grid.classList.remove('has-focus');
+function render() {
+    grid.innerHTML = '';
+    grid.classList.remove('has-focus');
     
-    Const currentCategory = marvelCategories[activeTab];
-    Let catWatchedCount = 0;
-    Let catTotalCount = currentCategory.items.length;
+    const currentCategory = marvelCategories[activeTab];
+    let catWatchedCount = 0;
+    let catTotalCount = currentCategory.Items.length;
 
-    CurrentCategory.items.forEach((item, index) => {
-        Const isWatched = !!watchedList[item.id];
-        If (isWatched) catWatchedCount++;
+    currentCategory.Items.forEach((item, index) => {
+        const isWatched = !!watchedList[item.id];
+        if (isWatched) catWatchedCount++;
 
-        Const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
-        Const matchesFilter = 
-            CurrentFilter === 'all' ||
+        const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesFilter = 
+            currentFilter === 'all' ||
             (currentFilter === 'watched' && isWatched) ||
             (currentFilter === 'unwatched' && !isWatched);
 
-        If (!matchesSearch || !matchesFilter) return;
+        if (!matchesSearch || !matchesFilter) return;
 
-        Const card = document.createElement('div');
-        Card.className = `card ${isWatched ? 'watched' : ''}`;
+        const card = document.createElement('div');
+        card.className = `card ${isWatched ? 'watched' : ''}`;
 
-        Const posterSrc = imagesList[item.id] || item.poster || 'https://via.placeholder.com/300x450/020617/ffffff?text=Marvel';
+        const posterSrc = imagesList[item.id] || item.poster || 'https://via.placeholder.com/300x450/020617/ffffff?text=Marvel';
 
-        Card.innerHTML = `
+        card.innerHTML = `
             <div class="poster-box">
                 <img class="poster-img" src="${posterSrc}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x450/020617/ffffff?text=Marvel';">
             </div>
@@ -237,72 +237,72 @@ Function render() {
             </div>
         `;
 
-        Card.addEventListener('click', () => {
-            PlaySound('focus');
-            Const isAlreadyFocused = card.classList.contains('focused');
+        card.addEventListener('click', () => {
+            playSound('focus');
+            const isAlreadyFocused = card.classList.contains('focused');
             
-            Document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
             
-            If (!isAlreadyFocused) {
-                Card.classList.add('focused');
-                Grid.classList.add('has-focus');
+            if (!isAlreadyFocused) {
+                card.classList.add('focused');
+                grid.classList.add('has-focus');
             } else {
-                Grid.classList.remove('has-focus');
+                grid.classList.remove('has-focus');
             }
         });
 
-        Grid.appendChild(card);
+        grid.appendChild(card);
     });
 
-    Const percent = catTotalCount > 0 ? Math.round((catWatchedCount / catTotalCount) * 100) : 0;
-    Const counterEl = document.getElementById('counterText');
-    Const percentEl = document.getElementById('percentText');
-    Const progressEl = document.getElementById('progressBar');
+    const percent = catTotalCount > 0 ? Math.round((catWatchedCount / catTotalCount) * 100) : 0;
+    const counterEl = document.getElementById('counterText');
+    const percentEl = document.getElementById('percentText');
+    const progressEl = document.getElementById('progressBar');
 
-    If (counterEl) counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount} في هذا القسم`;
-    If (percentEl) percentEl.innerText = `${percent}%`;
-    If (progressEl) progressEl.style.width = `${percent}%`;
+    if (counterEl) counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount} في هذا القسم`;
+    if (percentEl) percentEl.innerText = `${percent}%`;
+    if (progressEl) progressEl.style.width = `${percent}%`;
 }
 
-Document.addEventListener('click', (e) => {
-    If (!e.target.closest('.card')) {
-        Document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
-        Grid.classList.remove('has-focus');
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.card')) {
+        document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
+        grid.classList.remove('has-focus');
     }
 });
 
-Function toggleWatch(itemId) {
-    PlaySound('toggle');
-    WatchedList[itemId] = !watchedList[itemId];
-    LocalStorage.setItem('marvel_watched_v6', JSON.stringify(watchedList));
-    Render();
+function toggleWatch(itemId) {
+    playSound('toggle');
+    watchedList[itemId] = !watchedList[itemId];
+    localStorage.setItem('marvel_watched_v6', JSON.stringify(watchedList));
+    render();
 }
 
-Document.querySelectorAll('.tab-btn').forEach(btn => {
-    Btn.addEventListener('click', (e) => {
-        Document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        E.target.classList.add('active');
-        Const nextTab = parseInt(e.target.getAttribute('data-tab'));
-        ChangeTab(nextTab);
+document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        const nextTab = parseInt(e.target.getAttribute('data-tab'));
+        changeTab(nextTab);
     });
 });
 
-Const searchInput = document.getElementById('searchInput');
-If (searchInput) {
-    SearchInput.addEventListener('input', (e) => {
-        SearchQuery = e.target.value;
-        Render();
+const searchInput = document.getElementById('searchInput');
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        render();
     });
 }
 
-Document.querySelectorAll('.filter-btn').forEach(b => {
-    B.addEventListener('click', (e) => {
-        PlaySound('tab');
-        Document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        E.target.classList.add('active');
-        CurrentFilter = e.target.getAttribute('data-filter');
-        Render();
+document.querySelectorAll('.filter-btn').forEach(b => {
+    b.addEventListener('click', (e) => {
+        playSound('tab');
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+        currentFilter = e.target.getAttribute('data-filter');
+        render();
     });
 });
 
-Init();
+init();

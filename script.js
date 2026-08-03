@@ -3,8 +3,8 @@ const marvelCategories = [
         name: "MCU",
         items: [
             { id: "m1", title: "Spider-Man", year: "2002", duration: "ساعتان و1 دقيقة (121 دقيقة)", rating: "7.4", poster: "https://www.image2url.com/r2/default/images/1785745254267-9d68ff9f-8789-45ea-b103-dc77bf7d3025.jpg" },
-            { id: "m2", title: "Spider-Man 2", year: "2004", duration: "ساعتان و7 دقائق (127 دقيقة)", rating: "7.5", poster: "https://www.image2url.com/r2/default/images/1785745290463-49eb0cef-6761-4b9e-8a7e-6a30010f379c.jpg" },
-            { id: "m3", title: "Spider-Man 3", year: "2007", duration: "ساعتان و36 دقيقة (156 دقيقة)", rating: "6.3", poster: "https://www.image2url.com/r2/default/images/1785604280261-8c306ff1-7934-4939-a296-6cf44e1b1105.jpg" },
+            { id: "m2", title: "Spider-Man 2", year: "2004", duration: "ساعتان و7 دقائق (127 دقيقة)", rating: "7.5", poster: "https://www.image2url.com/r2/default/images/1785746520083-fad57928-b410-40dc-8e23-05158c881988.jpg" },
+            { id: "m3", title: "Spider-Man 3", year: "2007", duration: "ساعتان و36 دقيقة (156 دقيقة)", rating: "6.3", poster: "https://www.image2url.com/r2/default/images/1785746723860-7f0c9352-a713-4e75-ab2b-daef773aba12.jpg" },
             { id: "m4", title: "Iron Man", year: "2008", duration: "ساعتان و6 دقائق (126 دقيقة)", rating: "7.9", poster: "https://image.tmdb.org/t/p/w500/78lPtwv72eTNqFW9COBYI0dWDJa.jpg" },
             { id: "m5", title: "The Incredible Hulk", year: "2008", duration: "ساعة و52 دقيقة (112 دقيقة)", rating: "6.6", poster: "https://image.tmdb.org/t/p/w500/gKzYx79y0AQTL4UAk1cBQJ3nvrm.jpg" },
             { id: "m6", title: "Iron Man 2", year: "2010", duration: "ساعتان و4 دقائق (124 دقيقة)", rating: "6.9", poster: "https://upload.wikimedia.org/wikipedia/en/e/ed/Iron_Man_2_poster.jpg" },

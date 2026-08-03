@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 :root {
     --bg-base: #09090b;
@@ -75,7 +74,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 20px; /* مسافة واضحة بين MARVEL و BM9 */
 }
 
 .logo span {
@@ -411,7 +410,7 @@ body {
 }
 
 /* =========================================
-   تخصيص العرض لشاشات الموبايل (إرجاع البوسترات للحجم القديم الكبير)
+   تخصيص العرض لشاشات الموبايل (الوضع الطبيعي المريح)
    ========================================= */
 @media (max-width: 768px) {
     .logo {
@@ -420,37 +419,38 @@ body {
     }
 
     .movies-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
         gap: 16px; 
     }
 
     .card-details {
-        padding: 15px; 
+        padding: 14px; 
         gap: 10px;
     }
 
     .title {
-        font-size: 1rem; 
+        font-size: 0.95rem; 
+        line-height: 1.35;
     }
 
     .card-meta {
-        font-size: 0.85rem; 
-        flex-direction: row; 
-        justify-content: space-between;
-    }
-
-    .order-tag {
-        font-size: 0.8rem;
-        padding: 2px 8px;
+        font-size: 0.75rem; 
     }
 
     .upload-btn-label {
-        padding: 10px;
-        font-size: 0.85rem;
+        padding: 8px;
+        font-size: 0.8rem;
     }
 
     .watch-btn {
-        padding: 12px;
-        font-size: 0.9rem;
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .movies-grid {
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 12px;
     }
 }

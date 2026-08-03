@@ -2,8 +2,8 @@ const marvelCategories = [
     {
         name: "MCU",
         items: [
-            { id: "m1", title: "Spider-Man", year: "2002", duration: "ساعتان و1 دقيقة (121 دقيقة)", rating: "7.4", poster: "https://image.tmdb.org/t/p/w500/gh4cZbhZxyTbgxQPxD0dOudNPTn.jpg" },
-            { id: "m2", title: "Spider-Man 2", year: "2004", duration: "ساعتان و7 دقائق (127 دقيقة)", rating: "7.5", poster: "https://image.tmdb.org/t/p/w500/olxpyq9kJAZ2NU1siLshhhXEPR7.jpg" },
+            { id: "m1", title: "Spider-Man", year: "2002", duration: "ساعتان و1 دقيقة (121 دقيقة)", rating: "7.4", poster: "https://www.image2url.com/r2/default/images/1785745254267-9d68ff9f-8789-45ea-b103-dc77bf7d3025.jpg" },
+            { id: "m2", title: "Spider-Man 2", year: "2004", duration: "ساعتان و7 دقائق (127 دقيقة)", rating: "7.5", poster: "https://www.image2url.com/r2/default/images/1785745290463-49eb0cef-6761-4b9e-8a7e-6a30010f379c.jpg" },
             { id: "m3", title: "Spider-Man 3", year: "2007", duration: "ساعتان و36 دقيقة (156 دقيقة)", rating: "6.3", poster: "https://www.image2url.com/r2/default/images/1785604280261-8c306ff1-7934-4939-a296-6cf44e1b1105.jpg" },
             { id: "m4", title: "Iron Man", year: "2008", duration: "ساعتان و6 دقائق (126 دقيقة)", rating: "7.9", poster: "https://image.tmdb.org/t/p/w500/78lPtwv72eTNqFW9COBYI0dWDJa.jpg" },
             { id: "m5", title: "The Incredible Hulk", year: "2008", duration: "ساعة و52 دقيقة (112 دقيقة)", rating: "6.6", poster: "https://image.tmdb.org/t/p/w500/gKzYx79y0AQTL4UAk1cBQJ3nvrm.jpg" },
@@ -122,7 +122,6 @@ const marvelCategories = [
     }
 ];
 
-// دمج جميع الأعمال في كائن واحد لتسهيل الوصول إليها بالترتيب
 const allMarvelItems = {};
 marvelCategories.forEach(cat => {
     cat.items.forEach(item => {
@@ -130,7 +129,6 @@ marvelCategories.forEach(cat => {
     });
 });
 
-// قائمة الترتيب الزمني للأحداث بالكامل بدون Eyes of Wakanda ومع تعريفات المسلسلات كمعرفات ID فقط
 const chronologicalData = [
     "m1", "m2", "m3", "m10", "m11", 
     "x5", "x4", "x1", "x2", "x3", "x6", "x7", "x8", "x9", "x10", "x11", "x12", "x13", "m39",
@@ -282,12 +280,12 @@ function render() {
                         <span>${item.year}</span>
                     </div>
                     <div class="title">${item.title}</div>
-                    <div class="duration-info" style="font-size: 0.85rem; color: #38bdf8; margin-top: 4px; font-weight: bold;">⏱ ${item.duration}</div>
+                    <div class="duration-info" style="font-size: 0.8rem; color: #38bdf8; margin-top: 2px; font-weight: bold;">⏱ ${item.duration}</div>
                 </div>
                 
-                <div style="background: rgba(2, 6, 23, 0.6); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.2); display: flex; align-items: center; justify-content: space-between;" onclick="event.stopPropagation();">
-                    <span style="font-size: 0.85rem; color: #facc15; font-weight: bold;">⭐ IMDb Rating</span>
-                    <span style="font-size: 0.9rem; color: #ffffff; font-weight: bold; background: rgba(250, 204, 21, 0.15); padding: 2px 8px; border-radius: 6px;">${item.rating} / 10</span>
+                <div style="background: rgba(2, 6, 23, 0.6); padding: 5px 10px; border-radius: 6px; border: 1px solid rgba(56, 189, 248, 0.2); display: flex; align-items: center; justify-content: space-between;" onclick="event.stopPropagation();">
+                    <span style="font-size: 0.75rem; color: #facc15; font-weight: bold;">⭐ IMDb Rating</span>
+                    <span style="font-size: 0.8rem; color: #ffffff; font-weight: bold; background: rgba(250, 204, 21, 0.15); padding: 1px 6px; border-radius: 4px;">${item.rating} / 10</span>
                 </div>
 
                 <button class="watch-btn" onclick="event.stopPropagation(); toggleWatch('${item.id}')">

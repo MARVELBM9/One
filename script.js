@@ -130,7 +130,7 @@ marvelCategories.forEach(cat => {
 
 const chronologicalData = [
     "m1", "m2", "m3", "m10", "m11", 
-    "x5", "x4", "x1", "x2", "x3", "x6", "x7", "x8", "x9", "x10", "x11", "x12", "x13", "m39",
+    "x5", "x7", "x4", "x9", "x12", "x1", "x2", "x3", "x6", "x10", "x8", "x11", "x15", "x13",
     "f1", "f2",
     "m8",
     "c24",
@@ -342,7 +342,6 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
         
         if (currentFilter === 'chronological') {
             currentFilter = 'all';
-            document.querySelectorAll('.filter-btn').forEach(fb => fb.classList.remove('filter-btn')); // fixed safely
             document.querySelectorAll('.filter-btn').forEach(fb => fb.classList.remove('active'));
             document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
         }

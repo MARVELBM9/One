@@ -20,7 +20,6 @@ const marvelCategories = [
             { id: "m16", title: "Avengers: Age of Ultron", year: "2015", duration: "ساعتان و21 دقيقة (141 دقيقة)", rating: "7.3", poster: "https://image.tmdb.org/t/p/w500/4ssDuvEDkSArWEdyBl2X5EHvYKU.jpg" },
             { id: "m17", title: "Ant-Man", year: "2015", duration: "ساعة و57 دقيقة (117 دقيقة)", rating: "7.3", poster: "https://www.image2url.com/r2/default/images/1785617374640-a035242b-ca47-421b-b838-979b7674ad2e.jpg" },
             { id: "m18", title: "Captain America: Civil War", year: "2016", duration: "ساعتان و27 دقيقة (147 دقيقة)", rating: "7.8", poster: "https://upload.wikimedia.org/wikipedia/en/5/53/Captain_America_Civil_War_poster.jpg" },
-            { id: "m19", title: "Black Widow", year: "2021", duration: "ساعتان و14 دقيقة (134 دقيقة)", rating: "6.7", poster: "https://www.image2url.com/r2/default/images/1785617435279-cc39e2e6-9c1a-4fd3-9eea-830f07a4fa2e.jpg" },
             { id: "m20", title: "Doctor Strange", year: "2016", duration: "ساعة و55 دقيقة (115 دقيقة)", rating: "7.5", poster: "https://image.tmdb.org/t/p/w500/uGBVj3bEbCoZbDjjl9wTxcygko1.jpg" },
             { id: "m21", title: "Guardians of the Galaxy Vol. 2", year: "2017", duration: "ساعتان و16 دقيقة (136 دقيقة)", rating: "7.6", poster: "https://www.image2url.com/r2/default/images/1785617501040-f5a76fcd-ae68-4d73-8141-73a7603c73c2.jpg" },
             { id: "m22", title: "Spider-Man: Homecoming", year: "2017", duration: "ساعتان و13 دقيقة (133 دقيقة)", rating: "7.4", poster: "https://image.tmdb.org/t/p/w500/c24sv2weTHPsmDa7jEMN0m2P3RT.jpg" },
@@ -32,6 +31,7 @@ const marvelCategories = [
             { id: "m27", title: "Captain Marvel", year: "2019", duration: "ساعتان و4 دقائق (124 دقيقة)", rating: "6.8", poster: "https://www.image2url.com/r2/default/images/1785618061721-b02169d4-17bd-40ca-951e-4d92d1bc06da.jpg" },
             { id: "m28", title: "Avengers: Endgame", year: "2019", duration: "ثلاث ساعات و1 دقيقة (181 دقيقة)", rating: "8.4", poster: "https://www.image2url.com/r2/default/images/1785618127334-a67d21d6-0aa1-444e-87d7-70cc0aaf10bc.jpg" },
             { id: "m29", title: "Spider-Man: Far From Home", year: "2019", duration: "ساعتان و9 دقائق (129 دقيقة)", rating: "7.4", poster: "https://image.tmdb.org/t/p/w500/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg" },
+            { id: "m19", title: "Black Widow", year: "2021", duration: "ساعتان و14 دقيقة (134 دقيقة)", rating: "6.7", poster: "https://www.image2url.com/r2/default/images/1785617435279-cc39e2e6-9c1a-4fd3-9eea-830f07a4fa2e.jpg" },
             { id: "venom2", title: "Venom: Let There Be Carnage", year: "2021", duration: "ساعة و37 دقيقة (97 دقيقة)", rating: "5.9", poster: "https://image.tmdb.org/t/p/w500/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg" },
             { id: "m30", title: "Shang-Chi", year: "2021", duration: "ساعتان و12 دقيقة (132 دقيقة)", rating: "7.4", poster: "https://upload.wikimedia.org/wikipedia/en/7/74/Shang-Chi_and_the_Legend_of_the_Ten_Rings_poster.jpeg" },
             { id: "m31", title: "Eternals", year: "2021", duration: "ساعتان و36 دقيقة (156 دقيقة)", rating: "6.3", poster: "https://image.tmdb.org/t/p/w500/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg" },
@@ -54,6 +54,8 @@ const marvelCategories = [
     {
         name: "المسلسلات",
         items: [
+            { id: "c24", title: "Agent Carter – Season 1", year: "2015", duration: "8 حلقات", rating: "7.9", poster: "https://www.image2url.com/r2/default/images/1785726283933-ac18e98f-858d-4f25-96c7-910a14e1052f.jpg" },
+            { id: "c25", title: "Agent Carter – Season 2", year: "2016", duration: "10 حلقات", rating: "7.9", poster: "https://www.image2url.com/r2/default/images/1785726237505-02b5bf50-8e88-4417-94b4-8809bf697561.jpg" },
             { id: "s1", title: "Daredevil – Season 1", year: "2015", duration: "13 حلقة (54 دقيقة)", rating: "8.6", poster: "https://www.image2url.com/r2/default/images/1785620435460-254694ed-6c5b-4e36-9a1a-337f451814ac.jpg" },
             { id: "s2", title: "Jessica Jones – Season 1", year: "2015", duration: "13 حلقة (52 دقيقة)", rating: "7.9", poster: "https://www.image2url.com/r2/default/images/1785620992119-826a13e9-f295-43f0-bdf7-62428da35e91.jpg" },
             { id: "s3", title: "Daredevil – Season 2", year: "2016", duration: "13 حلقة (53 دقيقة)", rating: "8.5", poster: "https://www.image2url.com/r2/default/images/1785620576446-ee22ea02-050b-4d94-a434-fa64acd378c7.jpg" },
@@ -80,6 +82,7 @@ const marvelCategories = [
             { id: "s24", title: "The Guardians Holiday Special", year: "2022", duration: "حلقة خاصة (44 دقيقة)", rating: "6.9", poster: "https://www.image2url.com/r2/default/images/1785622165686-25fa15ad-9bda-4420-8eff-302e1d5d2b6b.jpg" },
             { id: "s25", title: "Secret Invasion", year: "2023", duration: "6 حلقات (54 دقيقة)", rating: "5.9", poster: "https://www.image2url.com/r2/default/images/1785622256700-f0dc9de8-86ac-4ff8-acbe-6deaf0901329.jpg" },
             { id: "s26", title: "Loki – Season 2", year: "2023", duration: "6 حلقات (50 دقيقة)", rating: "8.2", poster: "https://www.image2url.com/r2/default/images/1785622304101-af2f46c0-286f-4606-94fd-7d460b899ef1.jpg" },
+            { id: "c38", title: "I Am Groot – Season 2", year: "2023", duration: "5 حلقات", rating: "6.7", poster: "https://www.image2url.com/r2/default/images/1785726335311-8e4fa863-272e-4ba6-81d2-316ac2003cc3.jpg" },
             { id: "s27", title: "Echo", year: "2024", duration: "5 حلقات (48 دقيقة)", rating: "6.2", poster: "https://www.image2url.com/r2/default/images/1785622390270-5ad08e00-b999-42b7-912b-3303b261cdb3.jpg" },
             { id: "s28", title: "Agatha All Along", year: "2024", duration: "9 حلقات (40 دقيقة)", rating: "7.3", poster: "https://www.image2url.com/r2/default/images/1785622432074-1e30b22c-67dd-457a-b9be-a5373298c548.jpg" },
             { id: "s29", title: "Daredevil: Born Again", year: "2025", duration: "9 حلقات (50 دقيقة)", rating: "8.1", poster: "https://www.image2url.com/r2/default/images/1785620923734-87a2680b-281c-4714-a5dc-3babc14595da.jpg" },
@@ -117,6 +120,30 @@ const marvelCategories = [
             { id: "f4", title: "The Fantastic Four: First Steps", year: "2025", duration: "ساعتان و0 دقيقة (120 دقيقة)", rating: "7.1", poster: "https://www.image2url.com/r2/default/images/1785618486142-0cfc50c2-25b9-471b-b226-bd63af08a2fe.jpg" }
         ]
     }
+];
+
+// دمج جميع الأعمال في كائن واحد لتسهيل الوصول إليها بالترتيب
+const allMarvelItems = {};
+marvelCategories.forEach(cat => {
+    cat.items.forEach(item => {
+        allMarvelItems[item.id] = item;
+    });
+});
+
+// قائمة الترتيب الزمني للأحداث بالكامل بدون Eyes of Wakanda ومع تعريفات المسلسلات كمعرفات ID فقط
+const chronologicalData = [
+    "m1", "m2", "m3", "m10", "m11", 
+    "x5", "x4", "x1", "x2", "x3", "x6", "x7", "x8", "x9", "x10", "x11", "x12", "x13", "m39",
+    "f1", "f2",
+    "m8",
+    "c24",
+    "c25",
+    "m27", "m4", "m6", "m5", "m7", "m9", "m13", "m12", "m14", "m15", "m21", "s21",
+    "c38",
+    "s1", "s2", "m16", "m17", "s3", "s4", "s5", "s6", "m18", "m19", "m24", "m22", "s7", "m20",
+    "s8", "s9", "s10", "s11", "s12", "s13", "m23", "m26", "m25", "m28", "s16", "s26", "s17",
+    "s14", "m30", "s15", "m29", "m31", "m32", "m33", "s18", "s19", "m35", "s27", "s22", "s20",
+    "m34", "s23", "s24", "m36", "m37", "s25", "m38", "s28", "s29", "s30", "s32", "m44"
 ];
 
 let watchedList = JSON.parse(localStorage.getItem('marvel_watched_v6')) || {};
@@ -202,26 +229,47 @@ function render() {
     grid.innerHTML = '';
     grid.classList.remove('has-focus');
     
-    const currentCategory = marvelCategories[activeTab];
-    let catWatchedCount = 0;
-    let catTotalCount = currentCategory.items.length;
+    let itemsToRender = [];
+    const isChronological = (currentFilter === 'chronological');
 
-    currentCategory.items.forEach((item, index) => {
+    if (isChronological) {
+        itemsToRender = chronologicalData.map(idOrObj => {
+            if (typeof idOrObj === 'string') {
+                return allMarvelItems[idOrObj] || { id: idOrObj, title: "مفقود", year: "-", duration: "-", rating: "-", poster: "" };
+            }
+            return idOrObj;
+        }).filter(Boolean);
+        
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    } else {
+        itemsToRender = marvelCategories[activeTab].items;
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            if (parseInt(btn.getAttribute('data-tab')) === activeTab) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
+    let catWatchedCount = 0;
+    let catTotalCount = itemsToRender.length;
+
+    itemsToRender.forEach((item, index) => {
         const isWatched = !!watchedList[item.id];
         if (isWatched) catWatchedCount++;
 
         const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesFilter = 
-            currentFilter === 'all' ||
-            (currentFilter === 'watched' && isWatched) ||
-            (currentFilter === 'unwatched' && !isWatched);
+            (currentFilter === 'all') || 
+            (currentFilter === 'chronological') || 
+            (currentFilter === 'watched' && isWatched);
 
         if (!matchesSearch || !matchesFilter) return;
 
         const card = document.createElement('div');
         card.className = `card ${isWatched ? 'watched' : ''}`;
 
-        const posterSrc = imagesList[item.id] || item.poster || 'https://via.placeholder.com/300x450/020617/ffffff?text=Marvel';
+        const fallbackText = encodeURIComponent(item.title);
+        const posterSrc = imagesList[item.id] || item.poster || `https://via.placeholder.com/300x450/020617/ffffff?text=${fallbackText}`;
 
         card.innerHTML = `
             <div class="poster-box">
@@ -270,7 +318,13 @@ function render() {
     const percentEl = document.getElementById('percentText');
     const progressEl = document.getElementById('progressBar');
 
-    if (counterEl) counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount} في هذا القسم`;
+    if (counterEl) {
+        if (isChronological) {
+            counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount} في الترتيب الزمني`;
+        } else {
+            counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount} في هذا القسم`;
+        }
+    }
     if (percentEl) percentEl.innerText = `${percent}%`;
     if (progressEl) progressEl.style.width = `${percent}%`;
 }
@@ -293,6 +347,13 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         e.currentTarget.classList.add('active');
+        
+        if (currentFilter === 'chronological') {
+            currentFilter = 'all';
+            document.querySelectorAll('.filter-btn').forEach(fb => fb.classList.remove('active'));
+            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+        }
+
         const nextTab = parseInt(e.currentTarget.getAttribute('data-tab'));
         changeTab(nextTab);
     });
@@ -312,7 +373,14 @@ document.querySelectorAll('.filter-btn').forEach(b => {
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         e.currentTarget.classList.add('active');
         currentFilter = e.currentTarget.getAttribute('data-filter');
-        render();
+        
+        grid.classList.add('fade-out');
+        setTimeout(() => {
+            render();
+            grid.classList.remove('fade-out');
+            grid.classList.add('fade-in');
+            setTimeout(() => grid.classList.remove('fade-in'), 200);
+        }, 150);
     });
 });
 

@@ -105,7 +105,7 @@ const marvelCategories = [
             { id: "x9", title: "X-Men: Apocalypse", year: "2016", duration: "ساعتان و24 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785625499320-f0ea7fc2-b460-4ff4-8abc-3b85727081a1.jpg" },
             { id: "x10", title: "Logan", year: "2017", duration: "ساعتان و17 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624651426-9fd2df45-c64c-459d-a243-4bf3d360c4cb.jpg" },
             { id: "x11", title: "Deadpool 2", year: "2018", duration: "ساعة و59 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624547516-8221138e-8909-436b-89b1-1ea4034b1a81.jpg" },
-            { id: "x12", title: "Dark Phoenix", year: "2019", duration: "ساعة و53 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624705281-96b60e1a-0462-4ca2-9dab-d458084657cc.jpg" },
+            { id: "x12", title: "X-Men : Dark Phoenix", year: "2019", duration: "ساعة و53 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624705281-96b60e1a-0462-4ca2-9dab-d458084657cc.jpg" },
             { id: "x13", title: "The New Mutants", year: "2020", duration: "ساعة و34 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624791659-d020b96f-e9ba-40dd-a208-55cfb1ae1d9a.jpg" },
             { id: "x14", title: "X-Men '97", year: "2024", duration: "10 حلقات", poster: "https://www.image2url.com/r2/default/images/1785624855328-a0060e66-91cc-4619-bf82-4ac75b1f977e.jpg" },
             { id: "x15", title: "Deadpool & Wolverine", year: "2024", duration: "ساعتان و8 دقائق", poster: "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" }

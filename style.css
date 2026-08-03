@@ -1,13 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Cairo:wght@400;600;700;800;900&display=swap');
+
 :root {
-    --bg-primary: #030712;
-    --bg-secondary: #0f172a;
-    --accent-red: #ef4444;
-    --accent-glow: rgba(239, 68, 68, 0.25); /* تقليل التوهج */
+    --bg-main: #06070a;
+    --surface-card: #0f1117;
+    --surface-hover: #161923;
+    --border-color: #212533;
+    --border-hover: #3b4259;
+    --accent-color: #2563eb;
+    --accent-gradient: linear-gradient(135deg, #2563eb, #1d4ed8);
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
-    --card-bg: #1e293b;
-    --card-border: rgba(255, 255, 255, 0.08);
-    --success: #10b981;
+    --success-color: #059669;
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 20px 30px -10px rgba(37, 99, 235, 0.15);
 }
 
 * {
@@ -18,121 +23,164 @@
 }
 
 body {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-main);
     color: var(--text-main);
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
+    /* تدرج الفضاء والسماء المطلوب: أزرق فلكي هادئ يميل للأسود وبدون أي لون بنفسجي، يبدأ من الأعلى ويدرج ببطء لغاية منتصف الأفلام الأولى */
+    background-image: 
+        radial-gradient(circle at 50% 15%, rgba(37, 99, 235, 0.15) 0%, rgba(6, 7, 10, 0.95) 55%),
+        linear-gradient(180deg, #0d1224 0%, #06070a 65%);
+    background-repeat: no-repeat;
+    background-size: 100% 750px;
 }
 
-/* تخفيف الضباب والإضاءة الخلفية بناءً على طلبك */
+/* نجوم فضاء خفيفة جداً وغير مزعجة */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 750px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 0);
+    background-size: 55px 55px;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
 .ambient-glow {
     position: fixed;
-    top: -15vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50vw;
-    height: 30vh;
-    background: radial-gradient(circle, var(--accent-glow) 0%, rgba(3, 7, 18, 0) 80%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.06) 0%, transparent 100%);
     z-index: -1;
-    filter: blur(50px); /* تقليل الـ blur ليكون أخف */
-    opacity: 0.7; /* إضاءة أقل وأهدأ */
+    pointer-events: none;
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1360px;
     margin: 0 auto;
-    padding: 30px 20px;
+    padding: 40px 24px;
+    position: relative;
+    z-index: 1;
 }
 
-/* الهيدر */
+/* الهيدر واسم الموقع (بدون أي تغيير بالمكان أو الخط) */
 .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
 }
 
 .logo {
-    font-size: 2.5rem;
-    font-weight: 900;
+    font-family: 'Audiowide', sans-serif;
+    font-size: 3rem;
+    font-weight: 400;
     letter-spacing: 2px;
-    color: #fff;
+    color: var(--text-main);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
 .logo span {
-    color: var(--accent-red);
-    text-shadow: 0 0 15px var(--accent-glow);
+    font-family: 'Audiowide', sans-serif;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
     color: var(--text-muted);
-    font-size: 1.1rem;
-    margin-top: 5px;
+    font-size: 0.95rem;
+    margin-top: 8px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 /* شريط التقدم */
 .progress-container {
-    background: var(--bg-secondary);
-    border: 1px solid var(--card-border);
-    border-radius: 14px;
-    padding: 15px 20px;
-    margin-bottom: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    background: var(--surface-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-sm);
 }
 
 .progress-info {
     display: flex;
     justify-content: space-between;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.progress-info span:last-child {
+    color: var(--text-main);
+    font-weight: 700;
 }
 
 .progress-track {
-    background: #020617;
-    height: 10px;
-    border-radius: 5px;
+    background: #212533;
+    height: 6px;
+    border-radius: 4px;
     overflow: hidden;
 }
 
 .progress-fill {
-    background: linear-gradient(90deg, #dc2626, #ef4444);
+    background: var(--accent-gradient);
     height: 100%;
     width: 0%;
     transition: width 0.4s ease;
-    box-shadow: 0 0 8px var(--accent-red);
+    border-radius: 4px;
 }
 
 /* الأقسام (Tabs) */
 .tabs-wrapper {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
     margin-bottom: 25px;
-    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    overflow-x: auto;
 }
 
 .tab-btn {
-    background: var(--bg-secondary);
-    border: 1px solid var(--card-border);
+    background: var(--surface-card);
+    border: 1px solid var(--border-color);
     color: var(--text-muted);
-    padding: 10px 24px;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .tab-btn:hover {
-    color: #fff;
-    border-color: rgba(239, 68, 68, 0.4);
+    color: var(--text-main);
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
 }
 
 .tab-btn.active {
-    background: var(--accent-red);
+    background: var(--accent-color);
     color: #fff;
-    border-color: var(--accent-red);
-    box-shadow: 0 0 12px var(--accent-glow);
+    border-color: var(--accent-color);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
 /* شريط البحث والفلاتر */
@@ -151,18 +199,19 @@ body {
 
 .search-box input {
     width: 100%;
-    background: var(--bg-secondary);
-    border: 1px solid var(--card-border);
-    padding: 12px 20px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 1rem;
+    background: var(--surface-card);
+    border: 1px solid var(--border-color);
+    padding: 12px 18px;
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 0.95rem;
     outline: none;
-    transition: border-color 0.3s;
+    transition: all 0.2s ease;
 }
 
 .search-box input:focus {
-    border-color: var(--accent-red);
+    border-color: var(--accent-color);
+    background: var(--surface-hover);
 }
 
 .filter-wrapper {
@@ -171,57 +220,60 @@ body {
 }
 
 .filter-btn {
-    background: var(--bg-secondary);
-    border: 1px solid var(--card-border);
+    background: var(--surface-card);
+    border: 1px solid var(--border-color);
     color: var(--text-muted);
     padding: 0 18px;
-    border-radius: 10px;
+    border-radius: 8px;
     font-weight: 600;
+    font-size: 0.9rem;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
 }
 
 .filter-btn.active, .filter-btn:hover {
-    background: #334155;
-    color: #fff;
-    border-color: #475569;
+    background: var(--surface-hover);
+    color: var(--text-main);
+    border-color: var(--border-hover);
 }
 
-/* الشبكة والبطاقات */
+/* شبكة البطاقات */
 .movies-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
+    gap: 24px;
 }
 
 .card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 14px;
+    background: var(--surface-card);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     cursor: pointer;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--border-hover);
 }
 
 .poster-box {
     width: 100%;
     height: 310px;
     overflow: hidden;
-    background: #000;
+    background: #050608;
 }
 
 .poster-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    transition: transform 0.3s ease;
 }
 
 .card:hover .poster-img {
@@ -229,10 +281,10 @@ body {
 }
 
 .card-details {
-    padding: 15px;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     flex-grow: 1;
     justify-content: space-between;
 }
@@ -240,19 +292,20 @@ body {
 .card-meta {
     display: flex;
     justify-content: space-between;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--text-muted);
     font-weight: 600;
 }
 
 .order-tag {
-    color: var(--accent-red);
+    color: var(--accent-color);
 }
 
 .title {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     line-height: 1.4;
+    color: var(--text-main);
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -261,22 +314,25 @@ body {
 
 /* الأزرار داخل البطاقة */
 .upload-btn-label {
-    background: #0f172a;
-    border: 1px solid var(--card-border);
-    color: var(--text-muted);
+    background: #141722;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
     text-align: center;
-    padding: 8px;
+    padding: 10px;
     border-radius: 8px;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     cursor: pointer;
     font-weight: 600;
-    transition: 0.2s;
-    display: block;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
 
 .upload-btn-label:hover {
-    background: #1e293b;
-    color: #fff;
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
 }
 
 .upload-input-file {
@@ -284,46 +340,55 @@ body {
 }
 
 .watch-btn {
-    background: #334155;
-    color: #fff;
-    border: none;
+    background: #141722;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
     padding: 10px;
     border-radius: 8px;
     font-weight: 700;
+    font-size: 0.88rem;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
 }
 
 .watch-btn:hover {
-    background: #475569;
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
 }
 
 /* حالة المشاهدة */
 .card.watched {
-    border-color: rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, #0f1117 0%, #062314 100%);
+    border-color: rgba(5, 150, 105, 0.4);
 }
 
 .card.watched .watch-btn {
-    background: var(--success);
+    background: var(--success-color);
     color: #fff;
-    box-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
+    border-color: var(--success-color);
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25);
 }
 
-/* ميزة التركيز (Focus Mode) */
+/* ميزة التركيز (تم تقليل الضبابية والتشويش بشكل كبير لتكون خفيفة ومريحة جداً) */
 .movies-grid.has-focus .card:not(.focused) {
-    filter: blur(3px) brightness(0.5);
-    transform: scale(0.98);
+    filter: blur(0.7px) saturate(0.85);
+    opacity: 0.75;
+    transform: scale(0.99);
     pointer-events: none;
 }
 
 .movies-grid.has-focus .card.focused {
-    transform: scale(1.03);
-    box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
-    border-color: var(--accent-red);
+    transform: scale(1.02);
+    box-shadow: var(--shadow-hover), 0 0 0 2px var(--accent-color);
+    border-color: var(--accent-color);
     z-index: 10;
+    filter: none;
 }
 
-/* الحركات (Animations) */
 .fade-out {
     opacity: 0;
     transform: scale(0.98);
@@ -331,10 +396,10 @@ body {
 }
 
 .fade-in {
-    animation: fadeIn 0.25s ease forwards;
+    animation: fadeInClean 0.25s ease forwards;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
+@keyframes fadeInClean {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
 }

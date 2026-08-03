@@ -55,9 +55,9 @@ const marvelCategories = [
         name: "المسلسلات",
         items: [
             { id: "c24", title: "Agent Carter – Season 1", year: "2015", duration: "8 حلقات", poster: "https://www.image2url.com/r2/default/images/1785726283933-ac18e98f-858d-4f25-96c7-910a14e1052f.jpg" },
-            { id: "c25", title: "Agent Carter – Season 2", year: "2016", duration: "10 حلقات", poster: "https://www.image2url.com/r2/default/images/1785726237505-02b5bf50-8e88-4417-94b4-8809bf697561.jpg" },
             { id: "s1", title: "Daredevil – Season 1", year: "2015", duration: "13 حلقة (54 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785620435460-254694ed-6c5b-4e36-9a1a-337f451814ac.jpg" },
             { id: "s2", title: "Jessica Jones – Season 1", year: "2015", duration: "13 حلقة (52 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785620992119-826a13e9-f295-43f0-bdf7-62428da35e91.jpg" },
+            { id: "c25", title: "Agent Carter – Season 2", year: "2016", duration: "10 حلقات", poster: "https://www.image2url.com/r2/default/images/1785726237505-02b5bf50-8e88-4417-94b4-8809bf697561.jpg" },
             { id: "s3", title: "Daredevil – Season 2", year: "2016", duration: "13 حلقة (53 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785620576446-ee22ea02-050b-4d94-a434-fa64acd378c7.jpg" },
             { id: "s4", title: "Luke Cage – Season 1", year: "2016", duration: "13 حلقة (55 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785621432566-190e4464-5cc1-40da-bb62-0925f7626b6e.jpg" },
             { id: "s5", title: "Iron Fist – Season 1", year: "2017", duration: "13 حلقة (55 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785621565644-f34b0b5d-a812-4ab0-8e6d-e0d2c86c4264.jpg" },
@@ -116,7 +116,6 @@ const marvelCategories = [
         items: [
             { id: "f1", title: "Fantastic Four", year: "2005", duration: "ساعة و46 دقيقة (106 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785624900646-06123306-bd49-47ec-b97d-f58b5136c710.jpg" },
             { id: "f2", title: "Fantastic Four: Rise of the Silver Surfer", year: "2007", duration: "ساعة و32 دقيقة (92 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785624968967-c5b4362f-9c78-4178-a489-3be5c0208dba.jpg" },
-            { id: "f3", title: "Fantastic Four", year: "2015", duration: "ساعة و40 دقيقة (100 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785625072674-ed22465f-6aaa-4e21-b0db-a0fb7fab91f1.jpg" },
             { id: "f4", title: "The Fantastic Four: First Steps", year: "2025", duration: "ساعتان و0 دقيقة (120 دقيقة)", poster: "https://www.image2url.com/r2/default/images/1785618486142-0cfc50c2-25b9-471b-b226-bd63af08a2fe.jpg" }
         ]
     }

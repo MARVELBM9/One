@@ -129,9 +129,9 @@ marvelCategories.forEach(cat => {
 });
 
 const chronologicalData = [
-    "m1", "m2", "m3", "m10", "m11", 
     "x5", "x7", "x4", "x9", "x12", "x1", "x2", "x3", "x6", "x10", "x8", "x11", "x15", "x13",
     "f1", "f2",
+    "m1", "m2", "m3", "m10", "m11",
     "m8",
     "c24",
     "c25",

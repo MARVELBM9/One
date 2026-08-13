@@ -109,7 +109,7 @@ const marvelCategories = [
             { id: "x12", title: "X-Men : Dark Phoenix", year: "2019", duration: "ساعة و53 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624705281-96b60e1a-0462-4ca2-9dab-d458084657cc.jpg" },
             { id: "x13", title: "The New Mutants", year: "2020", duration: "ساعة و34 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624791659-d020b96f-e9ba-40dd-a208-55cfb1ae1d9a.jpg" },
             { id: "x14", title: "X-Men '97", year: "2024", duration: "10 حلقات", poster: "https://www.image2url.com/r2/default/images/1785624855328-a0060e66-91cc-4619-bf82-4ac75b1f977e.jpg" },
-            { id: "x15", title: "Deadpool & Wolverine", year: "2024", duration: "ساعتان و8 دقائق", poster: "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" }
+            { id: "m39", title: "Deadpool & Wolverine", year: "2024", duration: "ساعتان و8 دقائق", poster: "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" }
         ]
     },
     {
@@ -117,8 +117,12 @@ const marvelCategories = [
         items: [
             { id: "f1", title: "Fantastic Four", year: "2005", duration: "ساعة و46 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624900646-06123306-bd49-47ec-b97d-f58b5136c710.jpg" },
             { id: "f2", title: "Fantastic Four: Rise of the Silver Surfer", year: "2007", duration: "ساعة و32 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624968967-c5b4362f-9c78-4178-a489-3be5c0208dba.jpg" },
-            { id: "f4", title: "The Fantastic Four: First Steps", year: "2025", duration: "ساعتان و0 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785618486142-0cfc50c2-25b9-471b-b226-bd63af08a2fe.jpg" }
+            { id: "m42", title: "The Fantastic Four: First Steps", year: "2025", duration: "ساعتان و0 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785618486142-0cfc50c2-25b9-471b-b226-bd63af08a2fe.jpg" }
         ]
+    },
+    {
+        name: "الترتيب حسب الأحداث",
+        items: []
     }
 ];
 
@@ -146,12 +150,16 @@ const chronologicalData = [
     "s28", "s29", "s33", "m40", "m41", "m42", "s31", "m43"
 ];
 
+marvelCategories[4].items = chronologicalData.map(id => allMarvelItems[id]).filter(Boolean);
+
 let watchedList = JSON.parse(localStorage.getItem('marvel_watched_v6')) || {};
+let favList = JSON.parse(localStorage.getItem('marvel_favorites_v1')) || {};
 let imagesList = JSON.parse(localStorage.getItem('marvel_images_v6')) || {};
 
 let activeTab = 0;
 let currentFilter = 'all';
 let searchQuery = '';
+let focusedCardId = null; 
 
 const grid = document.getElementById('moviesGrid');
 let audioCtx = null;
@@ -165,61 +173,63 @@ function getAudioContext() {
 
 function playSound(type) {
     const ctx = getAudioContext();
-    if (ctx.state === 'suspended') {
-        ctx.resume();
-    }
+    if (ctx.state === 'suspended') ctx.resume();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
     osc.connect(gain);
     gain.connect(ctx.destination);
+    
+    const now = ctx.currentTime;
 
     if (type === 'tab') {
-        osc.frequency.setValueAtTime(350, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(600, ctx.currentTime + 0.1);
-        gain.gain.setValueAtTime(0.2, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.1);
+        osc.frequency.setValueAtTime(350, now);
+        osc.frequency.exponentialRampToValueAtTime(600, now + 0.1);
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        osc.start(now); osc.stop(now + 0.1);
     } else if (type === 'toggle') {
         osc.type = 'triangle';
-        osc.frequency.setValueAtTime(500, ctx.currentTime);
-        osc.frequency.setValueAtTime(850, ctx.currentTime + 0.08);
-        gain.gain.setValueAtTime(0.25, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.15);
+        osc.frequency.setValueAtTime(500, now);
+        osc.frequency.setValueAtTime(850, now + 0.08);
+        gain.gain.setValueAtTime(0.25, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.15);
+        osc.start(now); osc.stop(now + 0.15);
     } else if (type === 'focus') {
-        osc.frequency.setValueAtTime(400, ctx.currentTime);
-        gain.gain.setValueAtTime(0.15, ctx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.08);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.08);
+        osc.frequency.setValueAtTime(400, now);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+        osc.start(now); osc.stop(now + 0.08);
+    } else if (type === 'fav-add') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(400, now);
+        osc.frequency.exponentialRampToValueAtTime(800, now + 0.08);
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.3, now + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        osc.start(now); osc.stop(now + 0.1);
+    } else if (type === 'fav-remove') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(300, now);
+        osc.frequency.exponentialRampToValueAtTime(150, now + 0.08);
+        gain.gain.setValueAtTime(0, now);
+        gain.gain.linearRampToValueAtTime(0.15, now + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+        osc.start(now); osc.stop(now + 0.1);
     }
 }
 
-document.addEventListener('click', () => {
-    const ctx = getAudioContext();
-    if (ctx.state === 'suspended') {
-        ctx.resume();
-    }
-}, { once: true });
-
-function init() {
-    render();
-}
+function init() { render(); }
 
 function changeTab(newTabIndex) {
     if (activeTab === newTabIndex || !grid) return;
     playSound('tab');
-
     grid.classList.add('fade-out');
-
     setTimeout(() => {
         activeTab = newTabIndex;
+        focusedCardId = null; 
         render();
         grid.classList.remove('fade-out');
         grid.classList.add('fade-in');
-
         setTimeout(() => grid.classList.remove('fade-in'), 200);
     }, 150);
 }
@@ -229,107 +239,121 @@ function render() {
     grid.innerHTML = '';
     grid.classList.remove('has-focus');
     
+    // تهيئة كلمة البحث: تحويل الأحرف إلى صغيرة وإزالة المسافات والفواصل والرموز
+    const normalizedQuery = searchQuery.toLowerCase().replace(/[\s\-_:'.,]/g, '');
     let itemsToRender = [];
-    const isChronological = (currentFilter === 'chronological');
 
-    if (isChronological) {
-        itemsToRender = chronologicalData.map(idOrObj => {
-            if (typeof idOrObj === 'string') {
-                return allMarvelItems[idOrObj] || { id: idOrObj, title: "مفقود", year: "-", duration: "-", poster: "" };
-            }
-            return idOrObj;
-        }).filter(Boolean);
+    // إذا كان هناك نص في مربع البحث، اجعل البحث عاماً على كل الأفلام والمسلسلات
+    if (normalizedQuery !== '') {
+        const allItemsArray = Object.values(allMarvelItems);
+        const seenTitles = new Set(); // مجموعة لمنع التكرار في نتائج البحث
         
-        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-    } else {
-        itemsToRender = marvelCategories[activeTab].items;
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            if (parseInt(btn.getAttribute('data-tab')) === activeTab) {
-                btn.classList.add('active');
+        itemsToRender = allItemsArray.filter(item => {
+            const normalizedTitle = item.title.toLowerCase().replace(/[\s\-_:'.,]/g, '');
+            
+            if (normalizedTitle.includes(normalizedQuery)) {
+                // نستخدم العنوان الأصلي للمقارنة حتى نمنع تكرار نفس الفيلم/المسلسل
+                const originalTitleLowerCase = item.title.toLowerCase();
+                if (!seenTitles.has(originalTitleLowerCase)) {
+                    seenTitles.add(originalTitleLowerCase);
+                    return true;
+                }
             }
+            return false;
         });
+    } else {
+        // إذا لم يكن هناك بحث، اعرض عناصر التبويب الحالي فقط
+        itemsToRender = marvelCategories[activeTab].items;
     }
+    
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', parseInt(btn.getAttribute('data-tab')) === activeTab);
+    });
 
     let catWatchedCount = 0;
     let catTotalCount = itemsToRender.length;
 
     itemsToRender.forEach((item, index) => {
         const isWatched = !!watchedList[item.id];
+        const isFav = !!favList[item.id];
         if (isWatched) catWatchedCount++;
 
-        const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesFilter = 
             (currentFilter === 'all') || 
-            (currentFilter === 'chronological') || 
-            (currentFilter === 'watched' && isWatched);
+            (currentFilter === 'watched' && isWatched) ||
+            (currentFilter === 'favorites' && isFav);
 
-        if (!matchesSearch || !matchesFilter) return;
+        if (!matchesFilter) return;
 
         const card = document.createElement('div');
-        card.className = `card ${isWatched ? 'watched' : ''}`;
-
-        const fallbackText = encodeURIComponent(item.title);
-        const posterSrc = imagesList[item.id] || item.poster || `https://via.placeholder.com/300x450/020617/ffffff?text=${fallbackText}`;
+        
+        const isFocusedNow = (focusedCardId === item.id);
+        card.className = `card ${isWatched ? 'watched' : ''} ${isFocusedNow ? 'focused' : ''}`;
+        
+        if (isFocusedNow) {
+            grid.classList.add('has-focus'); 
+        }
+        
+        const posterSrc = imagesList[item.id] || item.poster;
 
         card.innerHTML = `
             <div class="poster-box">
-                <img class="poster-img" src="${posterSrc}" alt="${item.title}" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x450/020617/ffffff?text=Marvel';">
+                <img class="poster-img" src="${posterSrc}" alt="${item.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/300x450/020617/ffffff?text=Marvel';">
+                
+                <button class="fav-btn ${isFav ? 'active' : ''}" onclick="event.stopPropagation(); toggleFav('${item.id}')">
+                    <svg viewBox="0 0 24 24" width="22" height="22" 
+                         fill="${isFav ? '#e11d48' : 'none'}" 
+                         stroke="${isFav ? '#e11d48' : '#ffffff'}" 
+                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                         style="transition: all 0.3s ease;">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                    </svg>
+                </button>
+
             </div>
             <div class="card-details">
                 <div>
-                    <div class="card-meta">
-                        <span class="order-tag">#${index + 1}</span>
-                        <span>${item.year}</span>
-                    </div>
+                    <div class="card-meta"><span class="order-tag">#${index + 1}</span> <span>${item.year}</span></div>
                     <div class="title">${item.title}</div>
-                    <div class="duration-info" style="font-size: 0.8rem; color: #38bdf8; margin-top: 2px; font-weight: bold;">⏱ ${item.duration}</div>
+                    <div class="duration-info" style="font-size: 0.8rem; color: #38bdf8; margin-top: 2px;">⏱ ${item.duration}</div>
                 </div>
-
                 <button class="watch-btn" onclick="event.stopPropagation(); toggleWatch('${item.id}')">
                     ${isWatched ? '✔ تم المشاهدة' : 'لم أشاهده'}
                 </button>
             </div>
         `;
-
         card.addEventListener('click', () => {
             playSound('focus');
             const isAlreadyFocused = card.classList.contains('focused');
             
             document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
+            grid.classList.remove('has-focus');
             
-            if (!isAlreadyFocused) {
-                card.classList.add('focused');
-                grid.classList.add('has-focus');
+            if (!isAlreadyFocused) { 
+                card.classList.add('focused'); 
+                grid.classList.add('has-focus'); 
+                focusedCardId = item.id; 
             } else {
-                grid.classList.remove('has-focus');
+                focusedCardId = null; 
             }
         });
-
         grid.appendChild(card);
     });
 
     const percent = catTotalCount > 0 ? Math.round((catWatchedCount / catTotalCount) * 100) : 0;
     const counterEl = document.getElementById('counterText');
-    const percentEl = document.getElementById('percentText');
-    const progressEl = document.getElementById('progressBar');
-
+    
     if (counterEl) {
-        if (isChronological) {
-            counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount} في الترتيب الزمني`;
+        if (normalizedQuery !== '') {
+            counterEl.innerText = `نتائج البحث: ${catTotalCount}`;
         } else {
-            counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount} في هذا القسم`;
+            counterEl.innerText = `شاهدت ${catWatchedCount} من أصل ${catTotalCount}`;
         }
     }
-    if (percentEl) percentEl.innerText = `${percent}%`;
-    if (progressEl) progressEl.style.width = `${percent}%`;
+    
+    document.getElementById('percentText').innerText = `${percent}%`;
+    document.getElementById('progressBar').style.width = `${percent}%`;
 }
-
-document.addEventListener('click', (e) => {
-    if (!e.target.closest('.card') && grid) {
-        document.querySelectorAll('.card').forEach(c => c.classList.remove('focused'));
-        grid.classList.remove('has-focus');
-    }
-});
 
 function toggleWatch(itemId) {
     playSound('toggle');
@@ -338,29 +362,27 @@ function toggleWatch(itemId) {
     render();
 }
 
+function toggleFav(itemId) {
+    favList[itemId] = !favList[itemId];
+    
+    if (favList[itemId]) {
+        playSound('fav-add');
+    } else {
+        playSound('fav-remove');
+    }
+    
+    localStorage.setItem('marvel_favorites_v1', JSON.stringify(favList));
+    render();
+}
+
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        e.currentTarget.classList.add('active');
-        
-        if (currentFilter === 'chronological') {
-            currentFilter = 'all';
-            document.querySelectorAll('.filter-btn').forEach(fb => fb.classList.remove('active'));
-            document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
-        }
-
-        const nextTab = parseInt(e.currentTarget.getAttribute('data-tab'));
-        changeTab(nextTab);
+        currentFilter = 'all';
+        focusedCardId = null; 
+        document.querySelectorAll('.filter-btn').forEach(fb => fb.classList.toggle('active', fb.getAttribute('data-filter') === 'all'));
+        changeTab(parseInt(e.currentTarget.getAttribute('data-tab')));
     });
 });
-
-const searchInput = document.getElementById('searchInput');
-if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-        searchQuery = e.target.value;
-        render();
-    });
-}
 
 document.querySelectorAll('.filter-btn').forEach(b => {
     b.addEventListener('click', (e) => {
@@ -368,15 +390,14 @@ document.querySelectorAll('.filter-btn').forEach(b => {
         document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
         e.currentTarget.classList.add('active');
         currentFilter = e.currentTarget.getAttribute('data-filter');
-        
-        grid.classList.add('fade-out');
-        setTimeout(() => {
-            render();
-            grid.classList.remove('fade-out');
-            grid.classList.add('fade-in');
-            setTimeout(() => grid.classList.remove('fade-in'), 200);
-        }, 150);
+        focusedCardId = null; 
+        render();
     });
+});
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+    searchQuery = e.target.value;
+    render();
 });
 
 init();

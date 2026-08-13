@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MARVEL BM9</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- خط Cairo للنصوص العربية -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- خط Audiowide الحاد والمستقبلي (يشبه طابع أفنجرز ومارفل) -->
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -17,14 +13,11 @@
     <div class="ambient-glow"></div>
 
     <div class="container">
-        <!-- الهيدر الرئيسي -->
         <header class="header">
-            <!-- تم إضافة مسافة صريحة بين الكلمتين مع الخط الجديد -->
             <h1 class="logo">MARVEL <span>BM9</span></h1>
             <p class="subtitle">مكتبة عالم مارفل</p>
         </header>
 
-        <!-- شريط التقدم العام -->
         <div class="progress-container">
             <div class="progress-info">
                 <span id="counterText">جاري التحميل...</span>
@@ -35,15 +28,14 @@
             </div>
         </div>
 
-        <!-- أزرار الأقسام (Tabs) -->
         <div class="tabs-wrapper">
             <button class="tab-btn active" data-tab="0">MCU</button>
             <button class="tab-btn" data-tab="1">المسلسلات</button>
             <button class="tab-btn" data-tab="2">الأكس مين</button>
             <button class="tab-btn" data-tab="3">الفانتاستك فور</button>
+            <button class="tab-btn" data-tab="4">الترتيب حسب الأحداث</button>
         </div>
 
-        <!-- شريط البحث والفلاتر -->
         <div class="controls-bar">
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="ابحث عن فيلم أو مسلسل...">
@@ -51,11 +43,10 @@
             <div class="filter-wrapper">
                 <button class="filter-btn active" data-filter="all">الكل</button>
                 <button class="filter-btn" data-filter="watched">المشاهدة</button>
-                <button class="filter-btn" data-filter="chronological">الترتيب حسب الأحداث</button>
+                <button class="filter-btn" data-filter="favorites">المفضلة</button>
             </div>
         </div>
 
-        <!-- شبكة العرض (Grid) -->
         <div id="moviesGrid" class="movies-grid"></div>
     </div>
 

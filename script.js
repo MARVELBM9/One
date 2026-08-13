@@ -218,7 +218,32 @@ function playSound(type) {
     }
 }
 
-function init() { render(); }
+// دالة جديدة تم إضافتها لتعديل تصميم الخانات (التجاوب وعرض الخانة الخامسة بالأسفل)
+function fixTabsLayout() {
+    const tabs = document.querySelectorAll('.tab-btn');
+    if (tabs.length > 0) {
+        const tabsContainer = tabs[0].parentElement;
+        if (tabsContainer) {
+            // تفعيل نظام الـ Flexbox مع السماح بنزول العناصر للأسفل
+            tabsContainer.style.display = 'flex';
+            tabsContainer.style.flexWrap = 'wrap';
+            tabsContainer.style.justifyContent = 'center';
+            tabsContainer.style.gap = '8px';
+            tabsContainer.style.overflowX = 'hidden'; 
+        }
+        
+        // استهداف الخانة الخامسة (الترتيب حسب الأحداث) وإجبارها على أخذ عرض 100% للنزول في سطر جديد
+        if (tabs[4]) {
+            tabs[4].style.flex = '1 1 100%';
+            tabs[4].style.marginTop = '4px';
+        }
+    }
+}
+
+function init() { 
+    fixTabsLayout(); // استدعاء الدالة لتطبيق التعديل على تصميم الأزرار
+    render(); 
+}
 
 function changeTab(newTabIndex) {
     if (activeTab === newTabIndex || !grid) return;
@@ -239,20 +264,17 @@ function render() {
     grid.innerHTML = '';
     grid.classList.remove('has-focus');
     
-    // تهيئة كلمة البحث: تحويل الأحرف إلى صغيرة وإزالة المسافات والفواصل والرموز
     const normalizedQuery = searchQuery.toLowerCase().replace(/[\s\-_:'.,]/g, '');
     let itemsToRender = [];
 
-    // إذا كان هناك نص في مربع البحث، اجعل البحث عاماً على كل الأفلام والمسلسلات
     if (normalizedQuery !== '') {
         const allItemsArray = Object.values(allMarvelItems);
-        const seenTitles = new Set(); // مجموعة لمنع التكرار في نتائج البحث
+        const seenTitles = new Set(); 
         
         itemsToRender = allItemsArray.filter(item => {
             const normalizedTitle = item.title.toLowerCase().replace(/[\s\-_:'.,]/g, '');
             
             if (normalizedTitle.includes(normalizedQuery)) {
-                // نستخدم العنوان الأصلي للمقارنة حتى نمنع تكرار نفس الفيلم/المسلسل
                 const originalTitleLowerCase = item.title.toLowerCase();
                 if (!seenTitles.has(originalTitleLowerCase)) {
                     seenTitles.add(originalTitleLowerCase);
@@ -262,7 +284,6 @@ function render() {
             return false;
         });
     } else {
-        // إذا لم يكن هناك بحث، اعرض عناصر التبويب الحالي فقط
         itemsToRender = marvelCategories[activeTab].items;
     }
     
@@ -400,4 +421,9 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
     render();
 });
 
-init();
+// إذا كنت تستخدم نافذة DOMContentLoaded في ملف HTML يمكنك ترك الاستدعاء هنا
+window.addEventListener('DOMContentLoaded', () => {
+    init();
+});
+// وإذا كان السكريبت يتم استدعاؤه في نهاية الصفحة يمكنك الإبقاء على:
+// init();

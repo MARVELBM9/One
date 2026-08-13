@@ -85,8 +85,9 @@ const marvelCategories = [
             { id: "c38", title: "I Am Groot – Season 2", year: "2023", duration: "5 حلقات", poster: "https://www.image2url.com/r2/default/images/1785726335311-8e4fa863-272e-4ba6-81d2-316ac2003cc3.jpg" },
             { id: "s27", title: "Echo", year: "2024", duration: "5 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622390270-5ad08e00-b999-42b7-912b-3303b261cdb3.jpg" },
             { id: "s28", title: "Agatha All Along", year: "2024", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622432074-1e30b22c-67dd-457a-b9be-a5373298c548.jpg" },
-            { id: "s29", title: "Daredevil: Born Again", year: "2025", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1785620923734-87a2680b-281c-4714-a5dc-3babc14595da.jpg" },
+            { id: "s29", title: "Daredevil: Born Again – Season 1", year: "2025", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1786610850861-0b2678b6-3dbd-4719-ac43-809bd79f0727.jpg" },
             { id: "s30", title: "Ironheart", year: "2025", duration: "6 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622484387-6f5bbf89-1929-4cb7-8952-a7e4fb63840f.jpg" },
+            { id: "s33", title: "Daredevil: Born Again – Season 2", year: "2026", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1786610227861-ffb6ce60-230f-49f0-8995-05db47ead538.jpg" },
             { id: "s31", title: "The Punisher - One Last Kill", year: "2026", duration: "حلقة خاصة", poster: "https://www.image2url.com/r2/default/images/1785623239251-33b1a791-ee77-4e4f-a919-39936b1bd8fa.jpg" },
             { id: "s32", title: "Wonder Man", year: "2026", duration: "8 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622591505-f70d996e-93dc-41a8-ba7e-7c6db081ec60.jpg" }
         ]
@@ -142,7 +143,7 @@ const chronologicalData = [
     "m23", "m26", "m25", "m28", "venom1",
     "s16", "s26", "m39", "s14", "s15", "m30", "m31", "m29", "venom2", "m32", "venom3", "m33",
     "s18", "s19", "s20", "s22", "m35", "m34", "s23", "s24", "m36", "s25", "m38", "s27", "m37",
-    "s28", "m40", "m41", "m42", "s31", "m43"
+    "s28", "s29", "s33", "m40", "m41", "m42", "s31", "m43"
 ];
 
 let watchedList = JSON.parse(localStorage.getItem('marvel_watched_v6')) || {};

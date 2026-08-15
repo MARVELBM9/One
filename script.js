@@ -215,14 +215,82 @@ function playSound(type) {
     } catch (e) {}
 }
 
+// ----------------------------------------------------
+// نظام التنقل الجديد باستخدام History API
+// ----------------------------------------------------
+
+function showView(hash) {
+    const overlay = document.getElementById('introOverlay');
+    const uniSel = document.getElementById('universeSelection');
+    const typeSel = document.getElementById('typeSelection');
+    const mainCont = document.getElementById('mainContainer');
+
+    // حماية في حال سوى ريفريش بنص الموقع والمتغيرات مفقودة
+    if ((hash === '#main' && (!currentUniverse || !currentType)) ||
+        (hash === '#type' && !currentUniverse)) {
+        history.replaceState(null, '', '#intro');
+        hash = '#intro';
+    }
+
+    // إخفاء كل الأقسام
+    if (overlay) overlay.style.display = 'none';
+    if (uniSel) uniSel.classList.add('hidden-content');
+    if (typeSel) typeSel.classList.add('hidden-content');
+    if (mainCont) mainCont.classList.add('hidden-content');
+
+    // إظهار القسم المطلوب بناءً على الـ Hash
+    if (hash === '#universe') {
+        if (uniSel) uniSel.classList.remove('hidden-content');
+        isAppInitialized = true;
+    } else if (hash === '#type') {
+        if (typeSel) typeSel.classList.remove('hidden-content');
+    } else if (hash === '#main') {
+        if (mainCont) mainCont.classList.remove('hidden-content');
+        // تأكيد تفعيل وتحميل الكروت في حال ما كانت ظاهرة
+        if (document.getElementById('moviesGrid') && document.getElementById('moviesGrid').innerHTML === '') {
+            openMainContainer();
+        }
+    } else {
+        // الحالة الافتراضية (#intro أو #note)
+        if (overlay) {
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.classList.remove('fade-out-overlay');
+            }, 10);
+        }
+    }
+}
+
+// مراقبة زر الرجوع مال الموبايل (أو المتصفح)
+window.addEventListener('popstate', (e) => {
+    const hash = window.location.hash || '#intro';
+    showView(hash);
+});
+
+// تهيئة الموقع اول ما يفتح
+window.addEventListener('load', () => {
+    if (!window.location.hash || window.location.hash === '') {
+        history.replaceState(null, '', '#intro');
+        showView('#intro');
+    } else {
+        showView(window.location.hash);
+    }
+});
+
+// ----------------------------------------------------
+// دوال التحكم بالتنقل بداخل الموقع
+// ----------------------------------------------------
+
 function openUniverse(uni) {
     playSound('click');
     currentUniverse = uni;
-    document.getElementById('universeSelection').classList.add('hidden-content');
     if (uni === 'mcu') {
-        document.getElementById('typeSelection').classList.remove('hidden-content');
+        history.pushState(null, '', '#type');
+        showView('#type');
     } else {
         currentType = 'all'; 
+        history.pushState(null, '', '#main');
+        showView('#main');
         openMainContainer();
     }
 }
@@ -230,29 +298,23 @@ function openUniverse(uni) {
 function openType(type) {
     playSound('click');
     currentType = type;
-    document.getElementById('typeSelection').classList.add('hidden-content');
+    history.pushState(null, '', '#main');
+    showView('#main');
     openMainContainer();
 }
 
 function goBackToUniverseSelection() {
     playSound('click');
-    document.getElementById('typeSelection').classList.add('hidden-content');
-    document.getElementById('universeSelection').classList.remove('hidden-content');
+    history.back(); // هذا راح يفعل الـ popstate ويرجعك صح
 }
 
 function goBackToSelection() {
     playSound('click');
-    document.getElementById('mainContainer').classList.add('hidden-content');
-    if (currentUniverse === 'mcu') {
-        document.getElementById('typeSelection').classList.remove('hidden-content');
-    } else {
-        document.getElementById('universeSelection').classList.remove('hidden-content');
-    }
+    history.back(); // هذا راح يفعل الـ popstate ويرجعك صح
 }
 
 function openMainContainer() {
-    const mainCont = document.getElementById('mainContainer');
-    mainCont.classList.remove('hidden-content');
+    // إزالة الكلاسات صارت من مسؤولية دالة showView لذلك مسحناها من هنا
     currentTab = 'release'; 
     currentFilter = 'all'; 
     searchQuery = '';
@@ -263,6 +325,10 @@ function openMainContainer() {
     renderTabs();
     renderGridWithAnimation();
 }
+
+// ----------------------------------------------------
+// دوال العرض والتشغيل الخاصة بالكروت
+// ----------------------------------------------------
 
 function renderTabs() {
     const tabsWrapper = document.getElementById('dynamicTabs');
@@ -491,24 +557,28 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     });
 });
 
+// ----------------------------------------------------
+// أحداث الأزرار الرئيسية
+// ----------------------------------------------------
+
 document.getElementById('startBtn').addEventListener('click', () => {
     playSound('click');
     document.getElementById('introOverlay').classList.add('fade-out-overlay');
     
     setTimeout(() => {
-        document.getElementById('introOverlay').style.display = 'none';
-        
         if (!isAppInitialized) {
-            document.getElementById('universeSelection').classList.remove('hidden-content');
-            isAppInitialized = true;
+            // أول مرة يدوس ابدأ
+            history.pushState(null, '', '#universe');
+            showView('#universe');
+        } else {
+            // اذا جان فاتح ملاحظة ورايد يرجع
+            history.back(); 
         }
     }, 400);
 });
 
 document.getElementById('openNoteBtn').addEventListener('click', () => {
     playSound('click');
-    document.getElementById('introOverlay').style.display = 'flex';
-    setTimeout(() => {
-        document.getElementById('introOverlay').classList.remove('fade-out-overlay');
-    }, 10);
+    history.pushState(null, '', '#note');
+    showView('#note');
 });

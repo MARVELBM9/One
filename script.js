@@ -94,7 +94,7 @@ const marvelRawData = [
     { id: "x9", title: "X-Men: Apocalypse", year: "2016", duration: "ساعتان و24 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785625499320-f0ea7fc2-b460-4ff4-8abc-3b85727081a1.jpg" },
     { id: "x10", title: "Logan", year: "2017", duration: "ساعتان و17 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624651426-9fd2df45-c64c-459d-a243-4bf3d360c4cb.jpg" },
     { id: "x11", title: "Deadpool 2", year: "2018", duration: "ساعة و59 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624547516-8221138e-8909-436b-89b1-1ea4034b1a81.jpg" },
-    { id: "x12", title: "Dark Phoenix", year: "2019", duration: "ساعة و53 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624705281-96b60e1a-0462-4ca2-9dab-d458084657cc.jpg" },
+    { id: "x12", title: "X-Men: Dark Phoenix", year: "2019", duration: "ساعة و53 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624705281-96b60e1a-0462-4ca2-9dab-d458084657cc.jpg" },
     { id: "x13", title: "The New Mutants", year: "2020", duration: "ساعة و34 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624791659-d020b96f-e9ba-40dd-a208-55cfb1ae1d9a.jpg" },
     { id: "f1", title: "Fantastic Four", year: "2005", duration: "ساعة و46 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624900646-06123306-bd49-47ec-b97d-f58b5136c710.jpg" },
     { id: "f2", title: "Fantastic Four: Rise of the Silver Surfer", year: "2007", duration: "ساعة و32 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624968967-c5b4362f-9c78-4178-a489-3be5c0208dba.jpg" }

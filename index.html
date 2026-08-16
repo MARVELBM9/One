@@ -21,21 +21,21 @@
             </p>
 
             <div class="intro-question">
-             إذًا ، كيف أبدأ ؟ وماذا أشاهد أولاً ؟
+                إذًا ، كيف أبدأ ؟ وماذا أشاهد أولاً ؟
             </div>
 
             <div class="intro-steps">
                 <div class="step-item">
                     <span class="step-num">1</span>
-                    <p>ابدأ بـ <strong class="cyan-text">عالم X-Men</strong> .</p>
+                    <p>ابدأ بـ <strong class="cyan-text">فيلمي Fantastic Four</strong>في قسم FOX .</p>
                 </div>
                 <div class="step-item">
                     <span class="step-num">2</span>
-                    <p>ثم شاهد فيلمي <strong class="cyan-text">Fantastic Four</strong> .</p>
+                    <p>ثم شاهد <strong class="cyan-text">عالم X-Men</strong> في قسم FOX .</p>
                 </div>
                 <div class="step-item">
                     <span class="step-num">3</span>
-                    <p>بعدها انتقل إلى <strong class="cyan-text">عالم MCU</strong> ( أفلام ومسلسلات ) .</p>
+                    <p>بعدها انتقل إلى <strong class="cyan-text">عالم MCU</strong>  ( الأفنجرز + الديفيندرز ) .</p>
                 </div>
             </div>
 
@@ -58,41 +58,8 @@
     </div>
 
     <div id="typeSelection" class="selection-screen hidden-content">
-        <h1 class="logo selection-logo">MCU <span>CATEGORY</span></h1>
-        <div class="cards-container">
-            <div class="uni-card type-card type-uniform" onclick="openType('movies')">
-                <div class="card-bg-effect"></div>
-                <svg viewBox="0 0 24 24" width="70" height="70" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
-                    <line x1="7" y1="2" x2="7" y2="22"></line>
-                    <line x1="17" y1="2" x2="17" y2="22"></line>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <line x1="2" y1="7" x2="7" y2="7"></line>
-                    <line x1="2" y1="17" x2="7" y2="17"></line>
-                    <line x1="17" y1="17" x2="22" y2="17"></line>
-                    <line x1="17" y1="7" x2="22" y2="7"></line>
-                </svg>
-                <h2>أفلام</h2>
-            </div>
-            <div class="uni-card type-card type-uniform" onclick="openType('series')">
-                <div class="card-bg-effect"></div>
-                <svg viewBox="0 0 24 24" width="70" height="70" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
-                    <polyline points="17 2 12 7 7 2"></polyline>
-                </svg>
-                <h2>مسلسلات</h2>
-            </div>
-            <div class="uni-card type-card type-uniform" onclick="openType('all')">
-                <div class="card-bg-effect"></div>
-                <svg viewBox="0 0 24 24" width="70" height="70" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="14" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
-                <h2 style="font-size: 2.1rem; text-align: center;">أفلام<br>ومسلسلات</h2>
-            </div>
-        </div>
+        <h1 class="logo selection-logo" id="typeSelectionLogo">MCU <span>CATEGORY</span></h1>
+        <div class="cards-container" id="typeCardsContainer"></div>
         <button class="back-btn" style="margin-top: 30px;" onclick="goBackToUniverseSelection()">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7"/>

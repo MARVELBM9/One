@@ -45,8 +45,8 @@ const marvelRawData = [
     { id: "venom3", title: "Venom: The Last Dance", year: "2024", duration: "ساعة و50 دقيقة", poster: "https://image.tmdb.org/t/p/w500/aosm8NMQ3UyoBVpSxyimorCQykC.jpg" },
     { id: "m39", title: "Deadpool & Wolverine", year: "2024", duration: "ساعتان و8 دقائق", poster: "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg" },
     { id: "m40", title: "Captain America: Brave New World", year: "2025", duration: "ساعة و58 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785608441949-f18129b9-5ca2-4e1c-9da6-8c178cb8bbe2.jpg" },
-    { id: "m41", title: "Thunderbolts*", year: "2025", duration: "ساعتان و6 دقائق", poster: "https://www.image2url.com/r2/default/images/1785618432548-42ab0be3-d75c-451f-978e-9606c8c72d81.jpg" },
-    { id: "m42", title: "The Fantastic Four: First Steps", year: "2025", duration: "ساعة و54 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785618486142-0cfc50c2-25b9-471b-b226-bd63af08a2fe.jpg" },
+    { id: "m41", title: "Thunderbolts*", year: "2025", duration: "ساعتان و7 دقائق", poster: "https://www.image2url.com/r2/default/images/1785618432548-42ab0be3-d75c-451f-978e-9606c8c72d81.jpg" },
+    { id: "m42", title: "The Fantastic Four: First Steps", year: "2025", duration: "ساعة و55 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785618486142-0cfc50c2-25b9-471b-b226-bd63af08a2fe.jpg" },
     { id: "m43", title: "Spider-Man: Brand New Day", year: "2026", duration: "ساعتان و25 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785608501842-c550c4d0-5fe3-45c4-a4fb-233a306b0172.jpg" },
 
 
@@ -85,7 +85,7 @@ const marvelRawData = [
     { id: "s28", title: "Agatha All Along", year: "2024", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622432074-1e30b22c-67dd-457a-b9be-a5373298c548.jpg" },
     { id: "s29", title: "Daredevil: Born Again — Season 1", year: "2025", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1786610850861-0b2678b6-3dbd-4719-ac43-809bd79f0727.jpg" },
     { id: "s30", title: "Ironheart", year: "2025", duration: "6 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622484387-6f5bbf89-1929-4cb7-8952-a7e4fb63840f.jpg" },
-    { id: "s33", title: "Daredevil: Born Again — Season 2", year: "2026", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1786610227861-ffb6ce60-230f-49f0-8995-05db47ead538.jpg" },
+    { id: "s33", title: "Daredevil: Born Again — Season 2", year: "2026", duration: "8 حلقات", poster: "https://www.image2url.com/r2/default/images/1786610227861-ffb6ce60-230f-49f0-8995-05db47ead538.jpg" },
     { id: "s32", title: "Wonder Man", year: "2026", duration: "8 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622591505-f70d996e-93dc-41a8-ba7e-7c6db081ec60.jpg" },
     { id: "s31", title: "The Punisher: One Last Kill", year: "2026", duration: "حلقة خاصة", poster: "https://www.image2url.com/r2/default/images/1785623239251-33b1a791-ee77-4e4f-a919-39936b1bd8fa.jpg" },
 
@@ -340,7 +340,7 @@ function playSound(type) {
                 ctx.currentTime + 0.05
             );
 
-            osc.start(ctx.currentTime);
+            osc.start();
             osc.stop(ctx.currentTime + 0.05);
 
         }
@@ -375,7 +375,7 @@ function playSound(type) {
                 ctx.currentTime + 0.08
             );
 
-            osc.start(ctx.currentTime);
+            osc.start();
             osc.stop(ctx.currentTime + 0.08);
         }
 

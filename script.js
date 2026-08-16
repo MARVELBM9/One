@@ -1,5 +1,5 @@
 const marvelRawData = [
-    // --- أفلام MCU ---
+    // --- أفلام MCU / AVENGERS ---
     { id: "m1", title: "Spider-Man", year: "2002", duration: "ساعتان و1 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785745254267-9d68ff9f-8789-45ea-b103-dc77bf7d3025.jpg" },
     { id: "m2", title: "Spider-Man 2", year: "2004", duration: "ساعتان و7 دقائق", poster: "https://www.image2url.com/r2/default/images/1785746520083-fad57928-b410-40dc-8e23-05158c881988.jpg" },
     { id: "m3", title: "Spider-Man 3", year: "2007", duration: "ساعتان و36 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785746723860-7f0c9352-a713-4e75-ab2b-daef773aba12.jpg" },
@@ -31,7 +31,7 @@ const marvelRawData = [
     { id: "m29", title: "Spider-Man: Far From Home", year: "2019", duration: "ساعتان و9 دقائق", poster: "https://image.tmdb.org/t/p/w500/4q2NNj4S5dG2RLF9CpXsej7yXl.jpg" },
     { id: "m19", title: "Black Widow", year: "2021", duration: "ساعتان و14 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785617435279-cc39e2e6-9c1a-4fd3-9eea-830f07a4fa2e.jpg" },
     { id: "venom2", title: "Venom: Let There Be Carnage", year: "2021", duration: "ساعة و37 دقيقة", poster: "https://image.tmdb.org/t/p/w500/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg" },
-    { id: "m30", title: "Shang-Chi", year: "2021", duration: "ساعتان و12 دقيقة", poster: "https://upload.wikimedia.org/wikipedia/en/7/74/Shang-Chi_and_the_Legend_of_the_Ten_Rings_poster.jpeg" },
+    { id: "m30", title: "Shang-Chi and the Legend of the Ten Rings", year: "2021", duration: "ساعتان و12 دقيقة", poster: "https://upload.wikimedia.org/wikipedia/en/7/74/Shang-Chi_and_the_Legend_of_the_Ten_Rings_poster.jpeg" },
     { id: "m31", title: "Eternals", year: "2021", duration: "ساعتان و36 دقيقة", poster: "https://image.tmdb.org/t/p/w500/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg" },
     { id: "m32", title: "Spider-Man: No Way Home", year: "2021", duration: "ساعتان و28 دقيقة", poster: "https://upload.wikimedia.org/wikipedia/en/0/00/Spider-Man_No_Way_Home_poster.jpg" },
     { id: "m33", title: "Doctor Strange in the Multiverse of Madness", year: "2022", duration: "ساعتان و6 دقائق", poster: "https://image.tmdb.org/t/p/w500/9Gtg2DzBhmYamXBS1hKAhiwbBKS.jpg" },
@@ -46,45 +46,41 @@ const marvelRawData = [
     { id: "m41", title: "Thunderbolts*", year: "2025", duration: "ساعتان و10 دقائق", poster: "https://www.image2url.com/r2/default/images/1785618432548-42ab0be3-d75c-451f-978e-9606c8c72d81.jpg" },
     { id: "m42", title: "The Fantastic Four: First Steps", year: "2025", duration: "ساعتان و0 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785618486142-0cfc50c2-25b9-471b-b226-bd63af08a2fe.jpg" },
     { id: "m43", title: "Spider-Man: Brand New Day", year: "2026", duration: "ساعتان و20 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785608501842-c550c4d0-5fe3-45c4-a4fb-233a306b0172.jpg" },
-    { id: "m44", title: "Avengers: Doomsday", year: "2026", duration: "ساعتان و30 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785618543535-36d20f85-d7df-4a19-b2ea-f440614f48e6.jpg" },
 
-    // --- مسلسلات MCU ---
-    { id: "c24", title: "Agent Carter – Season 1", year: "2015", duration: "8 حلقات", poster: "https://www.image2url.com/r2/default/images/1785726283933-ac18e98f-858d-4f25-96c7-910a14e1052f.jpg" },
-    { id: "s1", title: "Daredevil – Season 1", year: "2015", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785620435460-254694ed-6c5b-4e36-9a1a-337f451814ac.jpg" },
-    { id: "s2", title: "Jessica Jones – Season 1", year: "2015", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785620992119-826a13e9-f295-43f0-bdf7-62428da35e91.jpg" },
-    { id: "c25", title: "Agent Carter – Season 2", year: "2016", duration: "10 حلقات", poster: "https://www.image2url.com/r2/default/images/1785726237505-02b5bf50-8e88-4417-94b4-8809bf697561.jpg" },
-    { id: "s3", title: "Daredevil – Season 2", year: "2016", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785620576446-ee22ea02-050b-4d94-a434-fa64acd378c7.jpg" },
-    { id: "s4", title: "Luke Cage – Season 1", year: "2016", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621432566-190e4464-5cc1-40da-bb62-0925f7626b6e.jpg" },
-    { id: "s5", title: "Iron Fist – Season 1", year: "2017", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621565644-f34b0b5d-a812-4ab0-8e6d-e0d2c86c4264.jpg" },
+    // --- مسلسلات و أعمال MCU / DEFENDERS ---
+    { id: "c24", title: "Agent Carter — Season 1", year: "2015", duration: "8 حلقات", poster: "https://www.image2url.com/r2/default/images/1785726283933-ac18e98f-858d-4f25-96c7-910a14e1052f.jpg" },
+    { id: "s1", title: "Daredevil — Season 1", year: "2015", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785620435460-254694ed-6c5b-4e36-9a1a-337f451814ac.jpg" },
+    { id: "s2", title: "Jessica Jones — Season 1", year: "2015", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785620992119-826a13e9-f295-43f0-bdf7-62428da35e91.jpg" },
+    { id: "c25", title: "Agent Carter — Season 2", year: "2016", duration: "10 حلقات", poster: "https://www.image2url.com/r2/default/images/1785726237505-02b5bf50-8e88-4417-94b4-8809bf697561.jpg" },
+    { id: "s3", title: "Daredevil — Season 2", year: "2016", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785620576446-ee22ea02-050b-4d94-a434-fa64acd378c7.jpg" },
+    { id: "s4", title: "Luke Cage — Season 1", year: "2016", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621432566-190e4464-5cc1-40da-bb62-0925f7626b6e.jpg" },
+    { id: "s5", title: "Iron Fist — Season 1", year: "2017", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621565644-f34b0b5d-a812-4ab0-8e6d-e0d2c86c4264.jpg" },
     { id: "s6", title: "The Defenders", year: "2017", duration: "8 حلقات", poster: "https://www.image2url.com/r2/default/images/1785621671847-ba2ab502-2331-49e7-bba2-ec5f3f4f0411.jpg" },
-    { id: "s7", title: "The Punisher – Season 1", year: "2017", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621788713-e60b2864-87e1-44f6-832d-3e2412c102ac.jpg" },
-    { id: "s8", title: "Jessica Jones – Season 2", year: "2018", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621107551-8053c804-5dcd-4128-ac57-a1c6d14ab155.jpg" },
-    { id: "s9", title: "Luke Cage – Season 2", year: "2018", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621489937-eb3ea105-6d83-44cf-b4b3-8f84ccc7fbda.jpg" },
-    { id: "s10", title: "Iron Fist – Season 2", year: "2018", duration: "10 حلقات", poster: "https://www.image2url.com/r2/default/images/1785621616998-f6ac15be-6fe5-4f5f-9d6f-e2ddd66d2a1f.jpg" },
-    { id: "s11", title: "Daredevil – Season 3", year: "2018", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785620843895-3b83095c-9779-4d88-9a46-6a9887b7da4f.webp" },
-    { id: "s12", title: "The Punisher – Season 2", year: "2019", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621853801-ddeba2c7-8858-4c5b-915e-7700bb5ff73e.jpg" },
-    { id: "s13", title: "Jessica Jones – Season 3", year: "2019", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621179915-64b1a02e-43ba-44fc-9de0-b608f1127a61.jpg" },
+    { id: "s7", title: "The Punisher — Season 1", year: "2017", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621788713-e60b2864-87e1-44f6-832d-3e2412c102ac.jpg" },
+    { id: "s8", title: "Jessica Jones — Season 2", year: "2018", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621107551-8053c804-5dcd-4128-ac57-a1c6d14ab155.jpg" },
+    { id: "s9", title: "Luke Cage — Season 2", year: "2018", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621489937-eb3ea105-6d83-44cf-b4b3-8f84ccc7fbda.jpg" },
+    { id: "s10", title: "Iron Fist — Season 2", year: "2018", duration: "10 حلقات", poster: "https://www.image2url.com/r2/default/images/1785621616998-f6ac15be-6fe5-4f5f-9d6f-e2ddd66d2a1f.jpg" },
+    { id: "s11", title: "Daredevil — Season 3", year: "2018", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785620843895-3b83095c-9779-4d88-9a46-6a9887b7da4f.webp" },
+    { id: "s12", title: "The Punisher — Season 2", year: "2019", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621853801-ddeba2c7-8858-4c5b-915e-7700bb5ff73e.jpg" },
+    { id: "s13", title: "Jessica Jones — Season 3", year: "2019", duration: "13 حلقة", poster: "https://www.image2url.com/r2/default/images/1785621179915-64b1a02e-43ba-44fc-9de0-b608f1127a61.jpg" },
     { id: "s14", title: "WandaVision", year: "2021", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1785621904423-a9555846-93d9-4365-b555-0072c7fa8d22.jpg" },
     { id: "s15", title: "The Falcon and the Winter Soldier", year: "2021", duration: "6 حلقات", poster: "https://image.tmdb.org/t/p/w500/6kbAMLteGO8yyewYau6bJ683sw7.jpg" },
-    { id: "s16", title: "Loki – Season 1", year: "2021", duration: "6 حلقات", poster: "https://image.tmdb.org/t/p/w500/kEl2t3OhXc3Zb9FBh1AuYzRTgZp.jpg" },
-    { id: "s17", title: "What If...? – Season 1", year: "2021", duration: "9 حلقات", poster: "https://image.tmdb.org/t/p/w500/lztz5XBMG1x6Y5ubz7CxfPFsAcW.jpg" },
+    { id: "s16", title: "Loki — Season 1", year: "2021", duration: "6 حلقات", poster: "https://image.tmdb.org/t/p/w500/kEl2t3OhXc3Zb9FBh1AuYzRTgZp.jpg" },
     { id: "s18", title: "Hawkeye", year: "2021", duration: "6 حلقات", poster: "https://image.tmdb.org/t/p/w500/pqzjCxPVc9TkVgGRWeAoMmyqkZV.jpg" },
     { id: "s19", title: "Moon Knight", year: "2022", duration: "6 حلقات", poster: "https://www.image2url.com/r2/default/images/1785607757031-937dfb26-e520-43c9-92d6-b114155a385b.jpg" },
     { id: "s20", title: "Ms. Marvel", year: "2022", duration: "6 حلقات", poster: "https://www.image2url.com/r2/default/images/1785621960287-74b38747-c061-4dd6-a104-5e2e896320ab.jpg" },
-    { id: "s21", title: "I Am Groot", year: "2022", duration: "5 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622660939-30894733-f069-4248-bfe0-a231bbb9d3c8.jpg" },
     { id: "s22", title: "She-Hulk: Attorney at Law", year: "2022", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622065608-38fc60ef-8c96-46ad-a2e1-627be095d06b.jpg" },
     { id: "s23", title: "Werewolf by Night", year: "2022", duration: "حلقة خاصة", poster: "https://www.image2url.com/r2/default/images/1785622110320-7eea451f-40c1-4784-bd38-1b0ad8299872.jpg" },
-    { id: "s24", title: "The Guardians Holiday Special", year: "2022", duration: "حلقة خاصة", poster: "https://www.image2url.com/r2/default/images/1785622165686-25fa15ad-9bda-4420-8eff-302e1d5d2b6b.jpg" },
+    { id: "s24", title: "The Guardians of the Galaxy Holiday Special", year: "2022", duration: "حلقة خاصة", poster: "https://www.image2url.com/r2/default/images/1785622165686-25fa15ad-9bda-4420-8eff-302e1d5d2b6b.jpg" },
     { id: "s25", title: "Secret Invasion", year: "2023", duration: "6 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622256700-f0dc9de8-86ac-4ff8-acbe-6deaf0901329.jpg" },
-    { id: "s26", title: "Loki – Season 2", year: "2023", duration: "6 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622304101-af2f46c0-286f-4606-94fd-7d460b899ef1.jpg" },
-    { id: "c38", title: "I Am Groot – Season 2", year: "2023", duration: "5 حلقات", poster: "https://www.image2url.com/r2/default/images/1785726335311-8e4fa863-272e-4ba6-81d2-316ac2003cc3.jpg" },
+    { id: "s26", title: "Loki — Season 2", year: "2023", duration: "6 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622304101-af2f46c0-286f-4606-94fd-7d460b899ef1.jpg" },
     { id: "s27", title: "Echo", year: "2024", duration: "5 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622390270-5ad08e00-b999-42b7-912b-3303b261cdb3.jpg" },
     { id: "s28", title: "Agatha All Along", year: "2024", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622432074-1e30b22c-67dd-457a-b9be-a5373298c548.jpg" },
-    { id: "s29", title: "Daredevil: Born Again – Season 1", year: "2025", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1786610850861-0b2678b6-3dbd-4719-ac43-809bd79f0727.jpg" },
+    { id: "s29", title: "Daredevil: Born Again — Season 1", year: "2025", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1786610850861-0b2678b6-3dbd-4719-ac43-809bd79f0727.jpg" },
     { id: "s30", title: "Ironheart", year: "2025", duration: "6 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622484387-6f5bbf89-1929-4cb7-8952-a7e4fb63840f.jpg" },
-    { id: "s33", title: "Daredevil: Born Again – Season 2", year: "2026", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1786610227861-ffb6ce60-230f-49f0-8995-05db47ead538.jpg" },
+    { id: "s33", title: "Daredevil: Born Again — Season 2", year: "2026", duration: "9 حلقات", poster: "https://www.image2url.com/r2/default/images/1786610227861-ffb6ce60-230f-49f0-8995-05db47ead538.jpg" },
     { id: "s32", title: "Wonder Man", year: "2026", duration: "8 حلقات", poster: "https://www.image2url.com/r2/default/images/1785622591505-f70d996e-93dc-41a8-ba7e-7c6db081ec60.jpg" },
-    { id: "s31", title: "The Punisher - One Last Kill", year: "2026", duration: "حلقة خاصة", poster: "https://www.image2url.com/r2/default/images/1785623239251-33b1a791-ee77-4e4f-a919-39936b1bd8fa.jpg" },
+    { id: "s31", title: "The Punisher: One Last Kill", year: "2026", duration: "حلقة خاصة", poster: "https://www.image2url.com/r2/default/images/1785623239251-33b1a791-ee77-4e4f-a919-39936b1bd8fa.jpg" },
 
     // --- أفلام X-Men والفانتاستك فور (FOX) ---
     { id: "x1", title: "X-Men", year: "2000", duration: "ساعة و44 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785623915359-0f47ac91-4e50-47ff-b389-03df5c694480.jpg" },
@@ -98,9 +94,8 @@ const marvelRawData = [
     { id: "x9", title: "X-Men: Apocalypse", year: "2016", duration: "ساعتان و24 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785625499320-f0ea7fc2-b460-4ff4-8abc-3b85727081a1.jpg" },
     { id: "x10", title: "Logan", year: "2017", duration: "ساعتان و17 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624651426-9fd2df45-c64c-459d-a243-4bf3d360c4cb.jpg" },
     { id: "x11", title: "Deadpool 2", year: "2018", duration: "ساعة و59 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624547516-8221138e-8909-436b-89b1-1ea4034b1a81.jpg" },
-    { id: "x12", title: "X-Men : Dark Phoenix", year: "2019", duration: "ساعة و53 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624705281-96b60e1a-0462-4ca2-9dab-d458084657cc.jpg" },
+    { id: "x12", title: "Dark Phoenix", year: "2019", duration: "ساعة و53 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624705281-96b60e1a-0462-4ca2-9dab-d458084657cc.jpg" },
     { id: "x13", title: "The New Mutants", year: "2020", duration: "ساعة و34 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624791659-d020b96f-e9ba-40dd-a208-55cfb1ae1d9a.jpg" },
-    { id: "x14", title: "X-Men '97", year: "2024", duration: "10 حلقات", poster: "https://www.image2url.com/r2/default/images/1785624855328-a0060e66-91cc-4619-bf82-4ac75b1f977e.jpg" },
     { id: "f1", title: "Fantastic Four", year: "2005", duration: "ساعة و46 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624900646-06123306-bd49-47ec-b97d-f58b5136c710.jpg" },
     { id: "f2", title: "Fantastic Four: Rise of the Silver Surfer", year: "2007", duration: "ساعة و32 دقيقة", poster: "https://www.image2url.com/r2/default/images/1785624968967-c5b4362f-9c78-4178-a489-3be5c0208dba.jpg" }
 ];
@@ -108,17 +103,33 @@ const marvelRawData = [
 const allMarvelItems = {};
 marvelRawData.forEach(item => { allMarvelItems[item.id] = item; });
 
-const mcuMoviesReleaseIds = ["m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8", "m9", "m10", "m12", "m13", "m11", "m14", "m15", "m16", "m17", "m18", "m20", "m21", "m22", "m23", "m24", "venom1", "m25", "m26", "m27", "m28", "m29", "m19", "venom2", "m30", "m31", "m32", "m33", "m34", "m35", "m36", "m37", "m38", "venom3", "m39", "m40", "m41", "m42", "m43", "m44"];
-const mcuMoviesChronoIds = ["m1", "m2", "m3", "m10", "m11", "m8", "m27", "m5", "m4", "m6", "m7", "m9", "m12", "m13", "m14", "m15", "m21", "m16", "m17", "m18", "m24", "m22", "m20", "m23", "m26", "m25", "m28", "venom1", "m30", "m31", "m29", "m19", "venom2", "m32", "venom3", "m33", "m34", "m35", "m36", "m37", "m38", "m39", "m40", "m41", "m42", "m43", "m44"];
+// --- FOX Lists ---
+const foxXmenReleaseIds = ["x1", "x2", "x3", "x4", "x5", "x6", "x7", "x8", "x9", "x10", "x11", "x12", "x13", "m39"];
+const foxXmenChronoIds = ["x5", "x7", "x4", "x9", "x12", "x1", "x2", "x3", "x6", "x8", "x11", "m39", "x13", "x10"];
 
-const mcuSeriesReleaseIds = ["c24", "s1", "s2", "c25", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "s14", "s15", "s16", "s17", "s18", "s19", "s20", "s21", "s22", "s23", "s24", "s25", "s26", "c38", "s27", "s28", "s29", "s30", "s33", "s32", "s31"];
-const mcuSeriesChronoIds = ["c24", "c25", "s21", "c38", "s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "s17", "s16", "s26", "s14", "s15", "s18", "s19", "s20", "s22", "s23", "s24", "s25", "s27", "s28", "s30", "s29", "s33", "s32", "s31"];
+const foxF4ReleaseIds = ["f1", "f2"];
+const foxF4ChronoIds = ["f1", "f2"];
 
-const mcuAllReleaseIds = ["m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8", "m9", "m10", "m12", "m13", "m11", "m14", "m15", "m16", "m17", "c24", "m18", "s1", "s2", "c25", "s3", "s4", "m20", "s5", "m21", "s6", "m22", "s7", "m23", "s8", "m24", "s9", "s10", "venom1", "m25", "s11", "m26", "m27", "s12", "m28", "s13", "m29", "m19", "s14", "s15", "s16", "s17", "venom2", "m30", "m31", "s18", "m32", "s19", "m33", "s20", "s21", "s22", "m34", "s23", "s24", "m35", "m36", "m37", "s25", "s26", "c38", "m38", "s27", "s28", "m39", "venom3", "m40", "s29", "s30", "m41", "m42", "s33", "s32", "s31", "m43", "m44"];
-const mcuAllChronoIds = ["m1", "m2", "m3", "m10", "m11", "m8", "c24", "c25", "m27", "m5", "m4", "m6", "m7", "m9", "m12", "m13", "m14", "m15", "m21", "s21", "c38", "m16", "m17", "s1", "s2", "s3", "s4", "s5", "s6", "m18", "m24", "m22", "m20", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "m23", "m26", "m25", "m28", "s16", "s26", "m39", "s14", "s15", "m30", "m31", "venom1", "m29", "m19", "venom2", "m32", "venom3", "m33", "s17", "s18", "s19", "s20", "s22", "m35", "m34", "s23", "m36", "s25", "m38", "s27", "s24", "m37", "s28", "s29", "s33", "s30", "s32", "s31", "m40", "m41", "m42", "m43", "m44"];
+// --- MCU DEFENDERS Lists ---
+const mcuDefendersReleaseIds = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "s29", "s33", "s31"];
+const mcuDefendersChronoIds = ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "s29", "s33", "s31"];
 
-const foxReleaseIds = ["x1", "x2", "x3", "x4", "x5", "x6", "x7", "x8", "x9", "x10", "x11", "x12", "x13", "x14", "m39", "f1", "f2"];
-const foxChronoIds = ["x5", "x7", "x4", "x9", "x12", "x14", "x1", "x2", "x3", "x6", "x8", "x11", "x13", "x10", "m39", "f1", "f2"];
+// --- MCU AVENGERS Lists ---
+const mcuAvengersReleaseIds = [
+    "m1", "m2", "m3", "m4", "m5", "m6", "m7", "m8", "m9", "m10", "m12", "m13", "m14", "m11", "m15", "m16",
+    "c24", "c25", "m17", "m18", "m20", "m21", "m22", "m23", "m24", "m25", "m26", "venom1", "m27", "m28",
+    "m29", "s14", "s15", "s16", "m19", "m30", "venom2", "m31", "s18", "m32", "m33", "s19", "s20", "m34",
+    "s22", "s23", "s24", "m37", "m36", "m35", "s25", "s26", "m38", "s27", "s28", "venom3", "s30", "m40",
+    "m41", "m42", "s32", "m43"
+];
+
+const mcuAvengersChronoIds = [
+    "m1", "m2", "m3", "m10", "m11", "m8", "c24", "c25", "m27", "m4", "m6", "m5", "m7", "m9", "m12", "m13",
+    "m14", "m15", "m21", "m16", "m17", "m18", "m19", "m24", "m22", "m20", "m23", "m26", "m25", "m28",
+    "s16", "s26", "s14", "s15", "m30", "m31", "venom1", "m29", "venom2", "m32", "m33", "venom3", "s18",
+    "s19", "s20", "m35", "s27", "s22", "m34", "s23", "s24", "m37", "m36", "s25", "m38", "s28", "s30",
+    "m40", "m41", "m42", "s32", "m43"
+];
 
 let watchedList = JSON.parse(localStorage.getItem('marvel_watched_v6')) || {};
 let favList = JSON.parse(localStorage.getItem('marvel_favorites_v1')) || {};
@@ -219,39 +230,67 @@ function playSound(type) {
 // نظام التنقل الجديد باستخدام History API
 // ----------------------------------------------------
 
+function renderTypeSelection() {
+    const container = document.getElementById('typeCardsContainer');
+    const logo = document.getElementById('typeSelectionLogo');
+    if (!container) return;
+
+    if (currentUniverse === 'mcu') {
+        if (logo) logo.innerHTML = 'MCU <span>CATEGORY</span>';
+        container.innerHTML = `
+            <div class="uni-card type-card type-uniform" onclick="openType('defenders')">
+                <div class="card-bg-effect"></div>
+                <h2>DEFENDERS</h2>
+            </div>
+            <div class="uni-card type-card type-uniform" onclick="openType('avengers')">
+                <div class="card-bg-effect"></div>
+                <h2>AVENGERS</h2>
+            </div>
+        `;
+    } else if (currentUniverse === 'fox') {
+        if (logo) logo.innerHTML = 'FOX <span>CATEGORY</span>';
+        container.innerHTML = `
+            <div class="uni-card type-card type-uniform" onclick="openType('xmen')">
+                <div class="card-bg-effect"></div>
+                <h2>X-MEN</h2>
+            </div>
+            <div class="uni-card type-card type-uniform" onclick="openType('f4')">
+                <div class="card-bg-effect"></div>
+                <h2>Fantastic Four</h2>
+            </div>
+        `;
+    }
+}
+
 function showView(hash) {
     const overlay = document.getElementById('introOverlay');
     const uniSel = document.getElementById('universeSelection');
     const typeSel = document.getElementById('typeSelection');
     const mainCont = document.getElementById('mainContainer');
 
-    // حماية في حال سوى ريفريش بنص الموقع والمتغيرات مفقودة
     if ((hash === '#main' && (!currentUniverse || !currentType)) ||
         (hash === '#type' && !currentUniverse)) {
         history.replaceState(null, '', '#intro');
         hash = '#intro';
     }
 
-    // إخفاء كل الأقسام
     if (overlay) overlay.style.display = 'none';
     if (uniSel) uniSel.classList.add('hidden-content');
     if (typeSel) typeSel.classList.add('hidden-content');
     if (mainCont) mainCont.classList.add('hidden-content');
 
-    // إظهار القسم المطلوب بناءً على الـ Hash
     if (hash === '#universe') {
         if (uniSel) uniSel.classList.remove('hidden-content');
         isAppInitialized = true;
     } else if (hash === '#type') {
+        renderTypeSelection();
         if (typeSel) typeSel.classList.remove('hidden-content');
     } else if (hash === '#main') {
         if (mainCont) mainCont.classList.remove('hidden-content');
-        // تأكيد تفعيل وتحميل الكروت في حال ما كانت ظاهرة
         if (document.getElementById('moviesGrid') && document.getElementById('moviesGrid').innerHTML === '') {
             openMainContainer();
         }
     } else {
-        // الحالة الافتراضية (#intro أو #note)
         if (overlay) {
             overlay.style.display = 'flex';
             setTimeout(() => {
@@ -261,13 +300,11 @@ function showView(hash) {
     }
 }
 
-// مراقبة زر الرجوع مال الموبايل (أو المتصفح)
-window.addEventListener('popstate', (e) => {
+window.addEventListener('popstate', () => {
     const hash = window.location.hash || '#intro';
     showView(hash);
 });
 
-// تهيئة الموقع اول ما يفتح
 window.addEventListener('load', () => {
     if (!window.location.hash || window.location.hash === '') {
         history.replaceState(null, '', '#intro');
@@ -277,22 +314,12 @@ window.addEventListener('load', () => {
     }
 });
 
-// ----------------------------------------------------
-// دوال التحكم بالتنقل بداخل الموقع
-// ----------------------------------------------------
-
 function openUniverse(uni) {
     playSound('click');
     currentUniverse = uni;
-    if (uni === 'mcu') {
-        history.pushState(null, '', '#type');
-        showView('#type');
-    } else {
-        currentType = 'all'; 
-        history.pushState(null, '', '#main');
-        showView('#main');
-        openMainContainer();
-    }
+    renderTypeSelection();
+    history.pushState(null, '', '#type');
+    showView('#type');
 }
 
 function openType(type) {
@@ -305,16 +332,15 @@ function openType(type) {
 
 function goBackToUniverseSelection() {
     playSound('click');
-    history.back(); // هذا راح يفعل الـ popstate ويرجعك صح
+    history.back();
 }
 
 function goBackToSelection() {
     playSound('click');
-    history.back(); // هذا راح يفعل الـ popstate ويرجعك صح
+    history.back();
 }
 
 function openMainContainer() {
-    // إزالة الكلاسات صارت من مسؤولية دالة showView لذلك مسحناها من هنا
     currentTab = 'release'; 
     currentFilter = 'all'; 
     searchQuery = '';
@@ -325,10 +351,6 @@ function openMainContainer() {
     renderTabs();
     renderGridWithAnimation();
 }
-
-// ----------------------------------------------------
-// دوال العرض والتشغيل الخاصة بالكروت
-// ----------------------------------------------------
 
 function renderTabs() {
     const tabsWrapper = document.getElementById('dynamicTabs');
@@ -383,16 +405,18 @@ function renderGridWithAnimation() {
 }
 
 function getDisplayIds() {
-    if (currentUniverse === 'mcu') {
-        if (currentType === 'movies') {
-            return currentTab === 'release' ? mcuMoviesReleaseIds : mcuMoviesChronoIds;
-        } else if (currentType === 'series') {
-            return currentTab === 'release' ? mcuSeriesReleaseIds : mcuSeriesChronoIds;
-        } else if (currentType === 'all') {
-            return currentTab === 'release' ? mcuAllReleaseIds : mcuAllChronoIds;
+    if (currentUniverse === 'fox') {
+        if (currentType === 'xmen') {
+            return currentTab === 'release' ? foxXmenReleaseIds : foxXmenChronoIds;
+        } else if (currentType === 'f4') {
+            return currentTab === 'release' ? foxF4ReleaseIds : foxF4ChronoIds;
         }
-    } else if (currentUniverse === 'fox') {
-        return currentTab === 'release' ? foxReleaseIds : foxChronoIds;
+    } else if (currentUniverse === 'mcu') {
+        if (currentType === 'defenders') {
+            return currentTab === 'release' ? mcuDefendersReleaseIds : mcuDefendersChronoIds;
+        } else if (currentType === 'avengers') {
+            return currentTab === 'release' ? mcuAvengersReleaseIds : mcuAvengersChronoIds;
+        }
     }
     return [];
 }
@@ -557,21 +581,15 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     });
 });
 
-// ----------------------------------------------------
-// أحداث الأزرار الرئيسية
-// ----------------------------------------------------
-
 document.getElementById('startBtn').addEventListener('click', () => {
     playSound('click');
     document.getElementById('introOverlay').classList.add('fade-out-overlay');
     
     setTimeout(() => {
         if (!isAppInitialized) {
-            // أول مرة يدوس ابدأ
             history.pushState(null, '', '#universe');
             showView('#universe');
         } else {
-            // اذا جان فاتح ملاحظة ورايد يرجع
             history.back(); 
         }
     }, 400);

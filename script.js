@@ -238,13 +238,13 @@ function renderTypeSelection() {
     if (currentUniverse === 'mcu') {
         if (logo) logo.innerHTML = 'MCU <span>CATEGORY</span>';
         container.innerHTML = `
-            <div class="uni-card type-card type-uniform" onclick="openType('defenders')">
-                <div class="card-bg-effect"></div>
-                <h2>DEFENDERS</h2>
-            </div>
             <div class="uni-card type-card type-uniform" onclick="openType('avengers')">
                 <div class="card-bg-effect"></div>
                 <h2>AVENGERS</h2>
+            </div>
+            <div class="uni-card type-card type-uniform" onclick="openType('defenders')">
+                <div class="card-bg-effect"></div>
+                <h2>DEFENDERS</h2>
             </div>
         `;
     } else if (currentUniverse === 'fox') {

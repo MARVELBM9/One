@@ -281,6 +281,8 @@ body::before {
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
     background-color: #010708;
+    text-align: center;
+    padding: 20px;
 }
 
 .uni-card .card-bg-effect {
@@ -290,7 +292,7 @@ body::before {
     transition: all 0.5s ease;
 }
 
-/* تطابق كامل بين MCU و FOX (تمت إزالة الصورة وجعل التصميم موحد وعصري) */
+/* تطابق كامل بين MCU و FOX */
 .uni-card.mcu-card {
     background: linear-gradient(145deg, #031418, #010608);
     border-color: rgba(217, 164, 65, 0.25);
@@ -325,18 +327,25 @@ body::before {
     font-family: 'Audiowide', 'Cairo', sans-serif;
     font-size: 4rem;
     color: #fff;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     text-shadow: 0 5px 25px rgba(0,0,0,0.9);
     transition: all 0.3s;
     margin: 0;
+    width: 100%;
+    word-wrap: break-word;
+    hyphens: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* -------------------------------------------------------- */
-/* توحيد خلفيات الخانات الثلاث الثانوية (أفلام - مسلسلات - الكل) */
+/* توحيد خلفيات الخانات الثانوية وتوسيع العناوين بالمنتصف */
 /* -------------------------------------------------------- */
 .uni-card.type-card {
     flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
     border-width: 1px;
 }
 
@@ -346,24 +355,20 @@ body::before {
 }
 
 .uni-card.type-uniform .card-bg-effect {
-    background: radial-gradient(circle at 50% 20%, rgba(217, 164, 65, 0.18) 0%, transparent 75%);
+    background: radial-gradient(circle at 50% 50%, rgba(217, 164, 65, 0.18) 0%, transparent 75%);
     opacity: 0.8;
 }
 
 .uni-card.type-uniform:hover .card-bg-effect {
-    background: radial-gradient(circle at 50% 20%, rgba(217, 164, 65, 0.45) 0%, transparent 85%);
+    background: radial-gradient(circle at 50% 50%, rgba(217, 164, 65, 0.45) 0%, transparent 85%);
     transform: scale(1.05);
 }
 
-.uni-card.type-card svg {
-    z-index: 1;
-    color: rgba(255,255,255,0.85);
-    transition: transform 0.4s ease, color 0.3s ease, filter 0.3s ease;
-}
-
 .uni-card.type-card h2 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     letter-spacing: 2px;
+    line-height: 1.2;
+    text-align: center;
 }
 
 .uni-card.type-card:hover {
@@ -372,10 +377,17 @@ body::before {
     transform: translateY(-8px);
 }
 
-.uni-card.type-card:hover svg {
-    transform: translateY(-8px) scale(1.15);
-    color: var(--accent-color);
-    filter: drop-shadow(0 0 12px rgba(217, 164, 65, 0.6));
+/* تجاوب الخطوط للنصوص الطويلة والشاشات المختلفة */
+@media (max-width: 768px) {
+    .uni-card.type-card h2 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .uni-card.type-card h2 {
+        font-size: 1.8rem;
+    }
 }
 
 /* ======================================================== */
